@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "antd/dist/antd.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,8 +12,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="expenses" element={<></>} />
-        <Route path="invoices" element={<></>} />
+        <Route path="/admin/dashboard" element={<></>} />
+        <Route path="/admin/equipe" element={<></>} />
       </Routes>
   </BrowserRouter>
   </React.StrictMode>
