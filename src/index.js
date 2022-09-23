@@ -5,6 +5,8 @@ import "antd/dist/antd.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,10 +14,32 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/admin/dashboard" element={<></>} />
-        <Route path="/admin/equipe" element={<></>} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <GlobalLayout>
+              <Dashboard />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/admin/agendamentos"
+          element={<GlobalLayout></GlobalLayout>}
+        />
+        <Route
+          path="/admin/vagas"
+          element={<GlobalLayout></GlobalLayout>}
+        />
+        <Route
+          path="/admin/sitepersonalizavel"
+          element={<GlobalLayout></GlobalLayout>}
+        />
+        <Route
+          path="/admin/administracao"
+          element={<GlobalLayout></GlobalLayout>}
+        />
       </Routes>
-  </BrowserRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
