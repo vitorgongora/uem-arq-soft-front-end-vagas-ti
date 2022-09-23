@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
+import Vagas from "./pages/Vagas/Vagas";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -31,7 +32,14 @@ root.render(
             </GlobalLayout>
           }
         />
-        <Route path="/rh/vagas" element={<GlobalLayout></GlobalLayout>} />
+        <Route
+          path="/rh/vagas"
+          element={
+            <GlobalLayout>
+              <Vagas />
+            </GlobalLayout>
+          }
+        />
         <Route
           path="/rh/sitepersonalizavel"
           element={<GlobalLayout></GlobalLayout>}

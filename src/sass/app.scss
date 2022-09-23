@@ -729,3 +729,7 @@ a:hover,
   color: $red;
 }
 
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: $primary;
+}
+
