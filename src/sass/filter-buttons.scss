@@ -45,3 +45,7 @@
 .filter-buttons-container .ant-radio-button-wrapper:focus-within {
     box-shadow: none;
 }
+
+.filter-buttons-container .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within, .ant-picker-focused {
+    box-shadow: none;
+}
