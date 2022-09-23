@@ -105,7 +105,7 @@ const Vagas = (props) => {
           </Radio.Group>
         </FilterButtonsContainer>
         <Button type="primary" style={{ marginLeft: "auto" }}>
-          Novo Agendamento
+          Nova vaga
         </Button>
       </Row>
       <Row>
