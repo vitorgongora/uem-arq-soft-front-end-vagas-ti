@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-//import "antd/dist/antd.css";
 import "../../../sass/app.scss";
+import "../../../sass/table.scss";
+import "../../../sass/card.scss";
 import { ConfigProvider, Layout, Menu, message } from "antd";
 import {
   DashboardOutlined,
   CalendarOutlined,
   SnippetsOutlined,
   GlobalOutlined,
-  TeamOutlined
+  TeamOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import GlobalHeader from "../GlobalHeader/GlobalHeader";
@@ -73,19 +74,19 @@ const GlobalLayout = (props) => {
             selectedKeys={[getCurrentMenuRoute()]}
           >
             <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
-              <Link to="/admin/dashboard">Dashboard</Link>
+              <Link to="/rh/dashboard">Dashboard</Link>
             </Menu.Item>
             <Menu.Item key="agendamentos" icon={<CalendarOutlined />}>
-              <Link to="/admin/agendamentos">Agendamentos</Link>
+              <Link to="/rh/agendamentos">Agendamentos</Link>
             </Menu.Item>
             <Menu.Item key="vagas" icon={<SnippetsOutlined />}>
-              <Link to="/admin/vagas">Vagas</Link>
+              <Link to="/rh/vagas">Vagas</Link>
             </Menu.Item>
             <Menu.Item key="sitepersonalizavel" icon={<GlobalOutlined />}>
-              <Link to="/admin/sitepersonalizavel">Site personalizável</Link>
+              <Link to="/rh/sitepersonalizavel">Site personalizável</Link>
             </Menu.Item>
             <Menu.Item key="administracao" icon={<TeamOutlined />}>
-              <Link to="/admin/administracao">Administração</Link>
+              <Link to="/rh/administracao">Administração</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -96,7 +97,18 @@ const GlobalLayout = (props) => {
             username={username}
             accessLevel={accessLevel}
           />
-          <Content>{props.children}</Content>
+          <Content
+            style={{
+              paddingLeft: 150,
+              paddingRight: 150,
+              paddingTop: 32,
+              paddingBottom: 32, 
+              margin: 0,
+              minHeight: 280,
+            }}
+          >
+            {props.children}
+          </Content>
         </Layout>
       </Layout>
     </ConfigProvider>
