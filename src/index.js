@@ -5,8 +5,9 @@ import "antd/dist/antd.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
+import Agendamentos from "./pages/Agendamentos/Agendamentos";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,12 +25,13 @@ root.render(
         />
         <Route
           path="/rh/agendamentos"
-          element={<GlobalLayout></GlobalLayout>}
+          element={
+            <GlobalLayout>
+              <Agendamentos />
+            </GlobalLayout>
+          }
         />
-        <Route
-          path="/rh/vagas"
-          element={<GlobalLayout></GlobalLayout>}
-        />
+        <Route path="/rh/vagas" element={<GlobalLayout></GlobalLayout>} />
         <Route
           path="/rh/sitepersonalizavel"
           element={<GlobalLayout></GlobalLayout>}

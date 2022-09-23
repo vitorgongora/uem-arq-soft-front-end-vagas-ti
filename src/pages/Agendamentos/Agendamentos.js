@@ -1,10 +1,10 @@
 import React from "react";
 import { Row, Col, Typography, Card, Table, Radio, Button } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
-import CircleStat from "../components/CircleStat/CircleStat";
-import FilterButtonsContainer from "../components/FilterButtonsContainer/FilterButtonsContainer";
+import CircleStat from "../../components/CircleStat/CircleStat";
+import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
 
-const Dashboard = (props) => {
+const Agendamentos = (props) => {
   const columns = [
     {
       title: "Nome",
@@ -78,51 +78,11 @@ const Dashboard = (props) => {
   return (
     <>
       <Row>
-        <Col span={24}>
-          <Typography.Title level={2} style={{ marginBottom: 0 }}>
-            Bem-vindo João! 👋
-          </Typography.Title>
-          <Typography.Paragraph style={{ marginBottom: 32 }}>
-            Confira uma visualização geral dos processos seletivos abertos na
-            sua empresa
-          </Typography.Paragraph>
-        </Col>
-      </Row>
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col xs={24} sm={24} md={24} lg={8}>
-          <Card bordered={false} className="circle-stat-card">
-            <CircleStat
-              value={126}
-              color={"red"}
-              description={"Processos seletivos agendados para hoje"}
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={24} lg={8}>
-          <Card bordered={false} className="circle-stat-card">
-            <CircleStat
-              value={52}
-              color={"orange"}
-              description={"Aplicantes pendentes análise"}
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={24} md={24} lg={8}>
-          <Card bordered={false} className="circle-stat-card">
-            <CircleStat
-              value={3}
-              color={"green"}
-              description={"Vagas abertas"}
-            />
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Typography.Title level={3} style={{ marginTop: 32, marginBottom: 0 }}>
+        <Typography.Title level={3} style={{ marginBottom: 0 }}>
           Próximos agendamentos
         </Typography.Title>
       </Row>
-      <Row>
+      <Row align="middle">
         <FilterButtonsContainer>
           <Radio.Group value={"todos"}>
             <Radio.Button value="todos">Todos</Radio.Button>
@@ -130,6 +90,7 @@ const Dashboard = (props) => {
             <Radio.Button value="hoje">Hoje</Radio.Button>
           </Radio.Group>
         </FilterButtonsContainer>
+        <Button type="primary" style={{marginLeft: "auto"}}>Novo Agendamento</Button>
       </Row>
       <Row>
         <Card
@@ -144,4 +105,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default Agendamentos;

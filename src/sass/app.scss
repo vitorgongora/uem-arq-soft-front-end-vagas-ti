@@ -300,6 +300,10 @@ a:hover,
   border-color: $primary;
 }
 
+.ant-btn.ant-btn-primary {
+  border-radius: 4px;
+}
+
 .ant-btn:hover,
 .ant-btn:focus {
   color: $primary;
