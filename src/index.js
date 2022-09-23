@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route
-          path="/admin/dashboard"
+          path="/rh/dashboard"
           element={
             <GlobalLayout>
               <Dashboard />
@@ -23,19 +23,19 @@ root.render(
           }
         />
         <Route
-          path="/admin/agendamentos"
+          path="/rh/agendamentos"
           element={<GlobalLayout></GlobalLayout>}
         />
         <Route
-          path="/admin/vagas"
+          path="/rh/vagas"
           element={<GlobalLayout></GlobalLayout>}
         />
         <Route
-          path="/admin/sitepersonalizavel"
+          path="/rh/sitepersonalizavel"
           element={<GlobalLayout></GlobalLayout>}
         />
         <Route
-          path="/admin/administracao"
+          path="/rh/administracao"
           element={<GlobalLayout></GlobalLayout>}
         />
       </Routes>
