@@ -11,6 +11,36 @@ code {
   font-family: monospace;
 }
 
+.ant-layout-content {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .ant-layout-content {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .ant-layout-content {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .ant-layout-content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 .logo {
   display: flex;
   justify-content: center;

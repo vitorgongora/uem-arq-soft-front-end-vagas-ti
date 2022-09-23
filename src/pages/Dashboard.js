@@ -72,7 +72,7 @@ const Dashboard = (props) => {
       etapa: "Entrevista remota",
       score_atual: "21/100",
       horario_agendado: "04/11/2021 15:30",
-    }
+    },
   ];
 
   return (
@@ -89,8 +89,8 @@ const Dashboard = (props) => {
         </Col>
       </Row>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col span={8}>
-          <Card bordered={false}>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <Card bordered={false} className="circle-stat-card">
             <CircleStat
               value={126}
               color={"red"}
@@ -98,8 +98,8 @@ const Dashboard = (props) => {
             />
           </Card>
         </Col>
-        <Col span={8}>
-          <Card bordered={false}>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <Card bordered={false} className="circle-stat-card">
             <CircleStat
               value={52}
               color={"orange"}
@@ -107,8 +107,8 @@ const Dashboard = (props) => {
             />
           </Card>
         </Col>
-        <Col span={8}>
-          <Card bordered={false}>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <Card bordered={false} className="circle-stat-card">
             <CircleStat
               value={3}
               color={"green"}
@@ -132,7 +132,11 @@ const Dashboard = (props) => {
         </FilterButtonsContainer>
       </Row>
       <Row>
-        <Card className="card-table-container" bordered={false} style={{ width: "100%", marginTop: 12}}>
+        <Card
+          className="card-table-container"
+          bordered={false}
+          style={{ width: "100%", marginTop: 12 }}
+        >
           <Table columns={columns} dataSource={data} />
         </Card>
       </Row>

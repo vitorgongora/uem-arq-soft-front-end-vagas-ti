@@ -98,11 +98,8 @@ const GlobalLayout = (props) => {
             accessLevel={accessLevel}
           />
           <Content
+            className="ant-layout-content"
             style={{
-              paddingLeft: 150,
-              paddingRight: 150,
-              paddingTop: 32,
-              paddingBottom: 32, 
               margin: 0,
               minHeight: 280,
             }}
