@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
+import Administracao from "./pages/Adminstracao/Administracao";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -46,7 +47,11 @@ root.render(
         />
         <Route
           path="/rh/administracao"
-          element={<GlobalLayout></GlobalLayout>}
+          element={
+            <GlobalLayout>
+              <Administracao />
+            </GlobalLayout>
+          }
         />
       </Routes>
     </BrowserRouter>
