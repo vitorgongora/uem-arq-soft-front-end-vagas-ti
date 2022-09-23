@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Typography, Card, Table, Radio, Button } from "antd";
+import { Row, Col, Typography, Card, Table, Radio, Button, Space } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import CircleStat from "../../components/CircleStat/CircleStat";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
@@ -36,7 +36,9 @@ const Agendamentos = (props) => {
       title: "",
       key: "action",
       render: (_, record) => (
-        <Button shape="circle" icon={<InfoCircleOutlined />} />
+        <Space className="table-action-container">
+          <Button shape="circle" icon={<InfoCircleOutlined />} />
+        </Space>
       ),
     },
   ];
@@ -90,7 +92,9 @@ const Agendamentos = (props) => {
             <Radio.Button value="hoje">Hoje</Radio.Button>
           </Radio.Group>
         </FilterButtonsContainer>
-        <Button type="primary" style={{marginLeft: "auto"}}>Novo Agendamento</Button>
+        <Button type="primary" style={{ marginLeft: "auto" }}>
+          Novo Agendamento
+        </Button>
       </Row>
       <Row>
         <Card

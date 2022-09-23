@@ -45,7 +45,7 @@ const Vagas = (props) => {
       title: "",
       key: "action",
       render: (_, record) => (
-        <Space>
+        <Space className="table-action-container">
           <Button shape="circle" icon={<InfoCircleOutlined />} />
           <Button shape="circle" icon={<EditOutlined />} />
         </Space>
