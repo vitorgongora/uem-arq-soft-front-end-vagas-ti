@@ -737,3 +737,6 @@ a:hover,
   border-color: $primary;
 }
 
+.ant-form-item:last-of-type {
+  margin-bottom: 0px;
+}

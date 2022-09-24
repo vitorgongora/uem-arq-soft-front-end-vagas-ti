@@ -30,11 +30,11 @@ const UserButton = (props) => {
   const menu = (
     <Menu onClick={onMenuClick}>
       <Menu.Item key="profile" icon={<UserOutlined />}>
-        <Link to="/account/profile">Informações da conta</Link>
+        <Link to="/rh/perfil">Informações da conta</Link>
       </Menu.Item>
       {props.accessLevel === "account_admin" && (
         <Menu.Item key="payment" icon={<WalletOutlined />}>
-          <Link to="/account/payment">Forma de pagamento</Link>
+          <Link to="/rh/pagamento">Forma de pagamento</Link>
         </Menu.Item>
       )}
       <Menu.Divider />
