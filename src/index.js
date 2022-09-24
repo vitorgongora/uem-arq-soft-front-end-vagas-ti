@@ -13,6 +13,7 @@ import Vagas from "./pages/Vagas/Vagas";
 import Administracao from "./pages/Adminstracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
+import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
 
 render(
   <React.StrictMode>
@@ -67,7 +68,14 @@ render(
             </GlobalLayout>
           }
         />
-        <Route path="/rh/pagamento" element={<GlobalLayout></GlobalLayout>} />
+        <Route
+          path="/rh/pagamento"
+          element={
+            <GlobalLayout>
+              <FormaDePagamento />
+            </GlobalLayout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

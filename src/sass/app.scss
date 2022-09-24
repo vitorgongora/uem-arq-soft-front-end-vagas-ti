@@ -300,18 +300,45 @@ a:hover,
   border-color: $primary;
 }
 
-.ant-btn.ant-btn-primary {
-  border-radius: 4px;
-}
-
 .ant-btn:hover,
 .ant-btn:focus {
   color: $primary;
   border-color: $primary;
 }
 
+.ant-btn.ant-btn-danger:hover,
+.ant-btn.ant-btn-danger:focus {
+  color: $white;
+  border-color: $light-red;
+}
+
+.ant-btn.ant-btn-primary {
+  border-radius: 4px;
+}
+
+.ant-btn.ant-btn-danger {
+  border-radius: 4px;
+}
+
+.ant-btn.ant-btn-danger {
+  background-color: $red;
+}
+
 .ant-btn:focus {
   box-shadow: 0 0 0 2px $light-primary;
+}
+
+.ant-btn.ant-btn-danger:focus {
+  box-shadow: 0 0 0 2px $light-red;
+}
+
+.ant-btn.ant-btn-danger:active,
+.ant-btn.ant-btn-danger:focus {
+  background-color: $dark-red;
+}
+
+.ant-btn.ant-btn-danger:hover {
+  background-color: $dark-red;
 }
 
 .ant-btn-primary {
@@ -739,4 +766,12 @@ a:hover,
 
 .ant-form-item:last-of-type {
   margin-bottom: 0px;
+}
+
+.ant-collapse > .ant-collapse-item:last-child, .ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
+  border-radius: 0 0 8px 8px;
+}
+
+.ant-collapse-item.ant-collapse-item-active {
+  overflow: hidden;
 }
