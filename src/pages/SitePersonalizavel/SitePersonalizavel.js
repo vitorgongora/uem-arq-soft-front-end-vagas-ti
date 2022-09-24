@@ -17,6 +17,7 @@ import {
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import CircleStat from "../../components/CircleStat/CircleStat";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
+import ColorPicker from "../../components/ColorPicker/ColorPicker";
 
 const SitePersonalizavel = (props) => {
   let loading = false;
@@ -94,7 +95,7 @@ const SitePersonalizavel = (props) => {
             <Typography.Text strong>Layout da página</Typography.Text>
             <Divider style={{ marginTop: "6px" }} />
             <Form.Item label="Cor primária" name="cor_primaria">
-              
+              <ColorPicker />
             </Form.Item>
 
             <Form.Item>
