@@ -10,6 +10,7 @@ import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
 import Administracao from "./pages/Adminstracao/Administracao";
+import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -43,7 +44,11 @@ root.render(
         />
         <Route
           path="/rh/sitepersonalizavel"
-          element={<GlobalLayout></GlobalLayout>}
+          element={
+            <GlobalLayout>
+              <SitePersonalizavel />
+            </GlobalLayout>
+          }
         />
         <Route
           path="/rh/administracao"
