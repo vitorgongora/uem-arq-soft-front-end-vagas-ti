@@ -1,4 +1,5 @@
 import React from "react";
+import { render } from "react-dom";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "antd/dist/antd.css";
@@ -12,8 +13,7 @@ import Vagas from "./pages/Vagas/Vagas";
 import Administracao from "./pages/Adminstracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -60,7 +60,8 @@ root.render(
         />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

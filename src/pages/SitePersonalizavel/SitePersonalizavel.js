@@ -18,6 +18,7 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import CircleStat from "../../components/CircleStat/CircleStat";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
 import ColorPicker from "../../components/ColorPicker/ColorPicker";
+import RichTextInput from "../../components/layout/RichTextInput/RichTextInput";
 
 const SitePersonalizavel = (props) => {
   let loading = false;
@@ -84,12 +85,7 @@ const SitePersonalizavel = (props) => {
             </Row>
 
             <Form.Item label="Descrição" name="descricao">
-              <Input.TextArea
-                showCount
-                maxLength={768}
-                style={{ height: 120 }}
-                onChange={{}}
-              />
+              <RichTextInput />
             </Form.Item>
 
             <Typography.Text strong>Layout da página</Typography.Text>
