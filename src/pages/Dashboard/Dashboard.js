@@ -36,7 +36,9 @@ const Dashboard = (props) => {
       title: "",
       key: "action",
       render: (_, record) => (
-        <Button shape="circle" icon={<InfoCircleOutlined />} />
+        <div className="table-action-container">
+          <Button shape="circle" icon={<InfoCircleOutlined />} />
+        </div>
       ),
     },
   ];
