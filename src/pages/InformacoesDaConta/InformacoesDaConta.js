@@ -15,8 +15,8 @@ const InformacoesDaConta = (props) => {
             name="basic"
             layout={"vertical"}
             initialValues={{ remember: true }}
-            onFinish={{}}
-            onFinishFailed={{}}
+            onFinish={e => {}}
+            onFinishFailed={e => {}}
             autoComplete="off"
           >
             <Form.Item
