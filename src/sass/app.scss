@@ -320,6 +320,10 @@ a:hover,
   border-radius: 4px;
 }
 
+.ant-btn.ant-btn-default.ant-btn-circle {
+  border-radius: 50%;
+}
+
 .ant-btn.ant-btn-danger {
   border-radius: 4px;
 }
