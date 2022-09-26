@@ -13,11 +13,17 @@ import {
   Input,
   Select,
 } from "antd";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  WarningOutlined,
+} from "@ant-design/icons";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
 
 const Administracao = (props) => {
   const [isNewMemberModalOpen, setIsNewMemberModalOpen] = useState(false);
+  const [isEditMemberModalOpen, setIsEditMemberModalOpen] = useState(false);
+  const [isRemoveMemberModalOpen, setIsRemoveMemberModalOpen] = useState(false);
 
   const columns = [
     {
@@ -35,8 +41,16 @@ const Administracao = (props) => {
       key: "action",
       render: (_, record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<EditOutlined />} />
-          <Button shape="circle" icon={<DeleteOutlined />} />
+          <Button
+            shape="circle"
+            icon={<EditOutlined />}
+            onClick={(e) => setIsEditMemberModalOpen(true)}
+          />
+          <Button
+            shape="circle"
+            icon={<DeleteOutlined />}
+            onClick={(e) => setIsRemoveMemberModalOpen(true)}
+          />
         </Space>
       ),
     },
@@ -105,9 +119,9 @@ const Administracao = (props) => {
         zIndex={1001}
       >
         <Form
-          name="basic"
+          name="novo_membro"
           layout={"vertical"}
-          initialValues={{ remember: true }}
+          initialValues={{}}
           onFinish={(e) => {}}
           onFinishFailed={(e) => {}}
           autoComplete="off"
@@ -131,6 +145,63 @@ const Administracao = (props) => {
             </Select>
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        title="Editar membro"
+        open={isEditMemberModalOpen}
+        onOk={(e) => setIsEditMemberModalOpen(false)}
+        onCancel={(e) => setIsEditMemberModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="editar_membro"
+          layout={"vertical"}
+          initialValues={{
+            nome: "John Brown",
+            email: "johnbrown@gmail.com",
+            cargo: "rh",
+          }}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item label="Nome completo" name="nome">
+            <Input />
+          </Form.Item>
+          <Form.Item label="E-mail" name="email">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Senha" name="senha">
+            <Input.Password />
+          </Form.Item>
+          <Form.Item label="Confirmar senha" name="confirmar_senha">
+            <Input.Password />
+          </Form.Item>
+          <Form.Item label="Cargo" name="cargo">
+            <Select placeholder="Selecione o cargo">
+              <Select.Option value="rh">RH</Select.Option>
+              <Select.Option value="moderador">Moderador</Select.Option>
+            </Select>
+          </Form.Item>
+        </Form>
+      </Modal>
+      <Modal
+        title={
+          <>
+            <WarningOutlined
+              style={{ marginRight: 10, color: "rgba(0, 0, 0, 0.45)" }}
+            />
+            Atenção
+          </>
+        }
+        open={isRemoveMemberModalOpen}
+        onOk={(e) => setIsRemoveMemberModalOpen(false)}
+        onCancel={(e) => setIsRemoveMemberModalOpen(false)}
+        zIndex={1001}
+        okText="Sim"
+      >
+        Você tem certeza que deseja remover esse membro? <br />
+        Essa ação não pode ser desfeita.
       </Modal>
     </>
   );
