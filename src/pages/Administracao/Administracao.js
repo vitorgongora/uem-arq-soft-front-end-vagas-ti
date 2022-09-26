@@ -1,9 +1,24 @@
-import React from "react";
-import { Row, Col, Typography, Card, Table, Radio, Button, Space } from "antd";
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  Table,
+  Radio,
+  Button,
+  Space,
+  Modal,
+  Form,
+  Input,
+  Select,
+} from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
 
 const Administracao = (props) => {
+  const [isNewMemberModalOpen, setIsNewMemberModalOpen] = useState(false);
+
   const columns = [
     {
       title: "Nome",
@@ -65,7 +80,11 @@ const Administracao = (props) => {
           </Radio.Group>
         </FilterButtonsContainer>
         <div style={{ marginLeft: "auto" }}>5/20 membros</div>
-        <Button type="primary" style={{ marginLeft: "12px" }}>
+        <Button
+          type="primary"
+          style={{ marginLeft: "12px" }}
+          onClick={(e) => setIsNewMemberModalOpen(true)}
+        >
           Novo membro
         </Button>
       </Row>
@@ -78,6 +97,41 @@ const Administracao = (props) => {
           <Table columns={columns} dataSource={data} />
         </Card>
       </Row>
+      <Modal
+        title="Novo membro"
+        open={isNewMemberModalOpen}
+        onOk={(e) => setIsNewMemberModalOpen(false)}
+        onCancel={(e) => setIsNewMemberModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="basic"
+          layout={"vertical"}
+          initialValues={{ remember: true }}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item label="Nome completo" name="nome">
+            <Input />
+          </Form.Item>
+          <Form.Item label="E-mail" name="email">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Senha" name="senha">
+            <Input.Password />
+          </Form.Item>
+          <Form.Item label="Confirmar senha" name="confirmar_senha">
+            <Input.Password />
+          </Form.Item>
+          <Form.Item label="Cargo" name="cargo">
+            <Select placeholder="Selecione o cargo">
+              <Select.Option value="rh">RH</Select.Option>
+              <Select.Option value="moderador">Moderador</Select.Option>
+            </Select>
+          </Form.Item>
+        </Form>
+      </Modal>
     </>
   );
 };
