@@ -17,6 +17,21 @@ function App() {
             "url": "/equipe"
           }
         ]} />
+        <MenuPrincipal nomeAluno="Henrique Favaro" 
+        linksObject={[
+          {
+            "nome": "Recuperar Senha",
+            "url": "/dashboard"
+          },
+          {
+            "nome": "Cadastro Vaga - DEV",
+            "url": "/equipe"
+          },
+          {
+            "nome": "Dashboard - ADMIN",
+            "url": "/adm/admdashboard"
+          }
+        ]} />
     </div>
   );
 }

@@ -8,12 +8,14 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
+import AdmGlobalLayout from "./components/layout/AdmGlobalLayout/AdmGlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
 import Administracao from "./pages/Adminstracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
+import AdmDashboard from "./pages/AdmDashboard/AdmDashboard";
 
 render(
   <React.StrictMode>
@@ -74,6 +76,14 @@ render(
             <GlobalLayout>
               <FormaDePagamento />
             </GlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/admdashboard"
+          element={
+            <AdmGlobalLayout>
+              <AdmDashboard />
+            </AdmGlobalLayout>
           }
         />
       </Routes>
