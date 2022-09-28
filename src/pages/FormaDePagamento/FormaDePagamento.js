@@ -12,8 +12,10 @@ import {
   Input,
   Modal,
   Radio,
+  DatePicker,
+  InputNumber,
 } from "antd";
-import { CreditCardOutlined, DownloadOutlined } from "@ant-design/icons";
+import { CreditCardOutlined, DownloadOutlined, WarningOutlined } from "@ant-design/icons";
 import "../../sass/modal-radio.scss";
 
 const FormaDePagamento = (props) => {
@@ -78,10 +80,18 @@ const FormaDePagamento = (props) => {
                 >
                   Alterar plano
                 </Button>
-                <Button type="primary" style={{ width: "100%", marginTop: 6 }}>
+                <Button
+                  type="primary"
+                  style={{ width: "100%", marginTop: 6 }}
+                  onClick={(e) => setIsChangeCardModalOpen(true)}
+                >
                   Alterar cartão
                 </Button>
-                <Button className="ant-btn-danger" style={{ width: "100%", marginTop: 6 }}>
+                <Button
+                  className="ant-btn-danger"
+                  style={{ width: "100%", marginTop: 6 }}
+                  onClick={(e) => setIsCancelServiceModalOpen(true)}
+                >
                   Cancelar serviço
                 </Button>
               </Col>
@@ -105,11 +115,6 @@ const FormaDePagamento = (props) => {
         <Form
           name="change_plan"
           layout={"vertical"}
-          initialValues={{
-            nome: "John Brown",
-            email: "johnbrown@gmail.com",
-            cargo: "rh",
-          }}
           onFinish={(e) => {}}
           onFinishFailed={(e) => {}}
           autoComplete="off"
@@ -130,16 +135,79 @@ const FormaDePagamento = (props) => {
                   <div>Plano startup</div>
                   <div style={{ marginLeft: "auto" }}>R$120</div>
                 </Radio.Button>
-                <Radio.Button disabled className="plan-radio-button" value="personalizado">
+                <Radio.Button
+                  disabled
+                  className="plan-radio-button"
+                  value="personalizado"
+                >
                   <div>Plano personalizado</div>
                   <div style={{ marginLeft: "auto" }}>
-                    <a href="#" style={{textDecoration: "underline"}}>Entrar em contato</a>
+                    <a href="#" style={{ textDecoration: "underline" }}>
+                      Entrar em contato
+                    </a>
                   </div>
                 </Radio.Button>
               </Space>
             </Radio.Group>
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        title="Alterar plano"
+        open={isChangeCardModalOpen}
+        onOk={(e) => setIsChangeCardModalOpen(false)}
+        okText="Alterar"
+        onCancel={(e) => setIsChangeCardModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="change_credit_card"
+          layout={"vertical"}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item label="Nome no cartão" name="nome_cartao">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Número do cartão" name="numero_cartao">
+            <InputNumber
+              controls={false}
+              minLength={19}
+              maxLength={19}
+              style={{ width: "100%" }}
+              formatter={(value) => `${value}`.replace(/\d{4}(?=.)/g, "$& ")}
+            />
+          </Form.Item>
+          <Form.Item label="Data de vencimento" name="data_vencimento">
+            <DatePicker
+              picker="month"
+              placeholder="Selecione a data de vencimento"
+              style={{ width: "100%" }}
+            />
+          </Form.Item>
+          <Form.Item label="CCV" name="ccv">
+            <InputNumber controls={false} maxLength={3} />
+          </Form.Item>
+        </Form>
+      </Modal>
+      <Modal
+        title={
+          <>
+            <WarningOutlined
+              style={{ marginRight: 10, color: "rgba(0, 0, 0, 0.45)" }}
+            />
+            Atenção
+          </>
+        }
+        open={isCancelServiceModalOpen}
+        onOk={(e) => setIsCancelServiceModalOpen(false)}
+        onCancel={(e) => setIsCancelServiceModalOpen(false)}
+        zIndex={1001}
+        okText="Sim"
+      >
+        Você tem certeza que deseja cancelar o serviço? <br />
+        Essa ação não pode ser desfeita.
       </Modal>
     </>
   );
