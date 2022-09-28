@@ -81,7 +81,7 @@ const FormaDePagamento = (props) => {
                 <Button type="primary" style={{ width: "100%", marginTop: 6 }}>
                   Alterar cartão
                 </Button>
-                <Button type="danger" style={{ width: "100%", marginTop: 6 }}>
+                <Button className="ant-btn-danger" style={{ width: "100%", marginTop: 6 }}>
                   Cancelar serviço
                 </Button>
               </Col>
