@@ -96,9 +96,9 @@ const Vagas = (props) => {
       </Row>
       <Row align="middle">
         <FilterButtonsContainer>
-          <Radio.Group value={"abertas"}>
+          <Radio.Group defaultValue={"abertas"}>
             <Radio.Button value="abertas">Abertas</Radio.Button>
-            <Radio.Button value="pausdas">Pausadas</Radio.Button>
+            <Radio.Button value="pausadas">Pausadas</Radio.Button>
             <Radio.Button value="nao_publicadas">Não publicadas</Radio.Button>
             <Radio.Button value="preenchidas">Preenchidas</Radio.Button>
             <Radio.Button value="todas">Todas</Radio.Button>

@@ -87,7 +87,7 @@ const Administracao = (props) => {
       </Row>
       <Row align="middle">
         <FilterButtonsContainer>
-          <Radio.Group value={"todos"}>
+          <Radio.Group defaultValue={"todos"}>
             <Radio.Button value="todos">RH</Radio.Button>
             <Radio.Button value="semana">Moderadores</Radio.Button>
             <Radio.Button value="hoje">Administrador</Radio.Button>
