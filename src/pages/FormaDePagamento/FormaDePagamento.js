@@ -1,13 +1,32 @@
-import React from "react";
-import { Row, Col, Typography, Card, Button, Collapse, Space, Table } from "antd";
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Collapse,
+  Space,
+  Table,
+  Form,
+  Input,
+  Modal,
+  Radio,
+} from "antd";
 import { CreditCardOutlined, DownloadOutlined } from "@ant-design/icons";
+import "../../sass/modal-radio.scss";
 
 const FormaDePagamento = (props) => {
+  const [isChangePlanModalOpen, setIsChangePlanModalOpen] = useState(false);
+  const [isChangeCardModalOpen, setIsChangeCardModalOpen] = useState(false);
+  const [isCancelServiceModalOpen, setIsCancelServiceModalOpen] =
+    useState(false);
+
   const columns = [
     {
       title: "Data de emissão",
       dataIndex: "data",
-      key: "data"
+      key: "data",
     },
     {
       title: "",
@@ -52,7 +71,11 @@ const FormaDePagamento = (props) => {
                 <Row>Próxima cobraça em 20/Novembro/2021 por R$187,90</Row>
               </Col>
               <Col span={4}>
-                <Button type="primary" style={{ width: "100%" }}>
+                <Button
+                  type="primary"
+                  style={{ width: "100%" }}
+                  onClick={(e) => setIsChangePlanModalOpen(true)}
+                >
                   Alterar plano
                 </Button>
                 <Button type="primary" style={{ width: "100%", marginTop: 6 }}>
@@ -71,6 +94,53 @@ const FormaDePagamento = (props) => {
           </Collapse>
         </Card>
       </Row>
+      <Modal
+        title="Alterar plano"
+        open={isChangePlanModalOpen}
+        onOk={(e) => setIsChangePlanModalOpen(false)}
+        okText="Alterar"
+        onCancel={(e) => setIsChangePlanModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="change_plan"
+          layout={"vertical"}
+          initialValues={{
+            nome: "John Brown",
+            email: "johnbrown@gmail.com",
+            cargo: "rh",
+          }}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item name="plano">
+            <Radio.Group
+              onChange={(e) => {}}
+              defaultValue="base"
+              style={{ width: "100%" }}
+              className="plan-radio-group"
+            >
+              <Space direction="vertical" style={{ width: "100%" }}>
+                <Radio.Button className="plan-radio-button" value="base">
+                  <div>Plano base</div>
+                  <div style={{ marginLeft: "auto" }}>Grátis</div>
+                </Radio.Button>
+                <Radio.Button className="plan-radio-button" value="startup">
+                  <div>Plano startup</div>
+                  <div style={{ marginLeft: "auto" }}>R$120</div>
+                </Radio.Button>
+                <Radio.Button disabled className="plan-radio-button" value="personalizado">
+                  <div>Plano personalizado</div>
+                  <div style={{ marginLeft: "auto" }}>
+                    <a href="#" style={{textDecoration: "underline"}}>Entrar em contato</a>
+                  </div>
+                </Radio.Button>
+              </Space>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      </Modal>
     </>
   );
 };
