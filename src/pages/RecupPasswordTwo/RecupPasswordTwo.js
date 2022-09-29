@@ -61,7 +61,7 @@ const RecupPassword = (props) => {
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"10%", marginTop:"30%"}}>
+            <div style={{justifyContent:"center", marginLeft:"10%", marginTop:"20%"}}>
               <Row justify="center">
                 <Col span={15}>
                   <Typography.Title level={3} style={{ marginBottom: 0 }}>
@@ -81,32 +81,56 @@ const RecupPassword = (props) => {
                     style={{marginTop: "2%"}}
                   >
                     <Form.Item
-                      label="Email"
-                      name="Email"
-                      style={{width: "53%"}}
+                      label="Código de recuperação"
+                      name="Código de recuperação"
+                      style={{width: "55%"}}
                       rules={
                         [
                           // { required: true, message: "Please input your username!" },
                         ]
                       }
                     >
-                      <Input placeholder="insira seu e-mail" />
+                      <Input placeholder="insira o código de recuperação" />
+                    </Form.Item>
+
+                    <Form.Item
+                      label="Nova senha"
+                      name="Nova senha"
+                      style={{width: "55%"}}
+                      rules={
+                        [
+                          // { required: true, message: "Please input your username!" },
+                        ]
+                      }
+                    >
+                      <Input placeholder="insira a senha" />
+                    </Form.Item>
+
+                    <Form.Item
+                      label="Confirme a nova senha"
+                      name="Confirme a nova senha"
+                      style={{width: "55%"}}
+                      rules={
+                        [
+                          // { required: true, message: "Please input your username!" },
+                        ]
+                      }
+                    >
+                      <Input placeholder="insira a senha" />
                     </Form.Item>
                     
                     <Form.Item style={{marginBottom: "0px", display:"block"}}>
                       <Row>
+                        <Col span={9}></Col>
                         <Col span={10}>
-                          <Typography.Link href="/user/recupPasswordTwo" target="_self">
-                            Já tenho um código de recuperação
-                          </Typography.Link>
+                          <Button
+                            type="primary"
+                            htmlType="submit"
+                            style={{ display: "flex"}}
+                          >
+                            Alterar Senha
+                          </Button>
                         </Col>
-                        <Button
-                          type="primary"
-                          htmlType="submit"
-                          style={{ display: "flex"}}
-                        >
-                          Enviar
-                        </Button>
                       </Row>
                     </Form.Item>
                   </Form>
