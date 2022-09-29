@@ -14,7 +14,7 @@ const InformacoesDaConta = (props) => {
           <Form
             name="basic"
             layout={"vertical"}
-            initialValues={{ remember: true }}
+            initialValues={{}}
             onFinish={e => {}}
             onFinishFailed={e => {}}
             autoComplete="off"
