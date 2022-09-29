@@ -21,7 +21,7 @@ function App() {
         linksObject={[
           {
             "nome": "Recuperar Senha",
-            "url": "/dashboard"
+            "url": "/user/recupPassword"
           },
           {
             "nome": "Cadastro Vaga - DEV",

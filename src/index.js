@@ -17,7 +17,6 @@ import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
 import AdmDashboard from "./pages/AdmDashboard/AdmDashboard";
 import RecupPassword from "./pages/RecupPassword/RecupPassword";
-import GreenSide from "./components/layout/GreenSide/GreenSide";
 
 render(
   <React.StrictMode>
@@ -91,9 +90,7 @@ render(
         <Route
           path="/user/recupPassword"
           element={
-            <GreenSide>
-              <RecupPassword />
-            </GreenSide>
+            <RecupPassword />
           }
         />
       </Routes>
