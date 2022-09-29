@@ -18,6 +18,7 @@ import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
 import AdmDashboard from "./pages/AdmDashboard/AdmDashboard";
 import RecupPassword from "./pages/RecupPassword/RecupPassword";
 import RecupPasswordTwo from "./pages/RecupPasswordTwo/RecupPasswordTwo";
+import DeveloperApply from "./pages/DeveloperApply/DeveloperApply";
 
 render(
   <React.StrictMode>
@@ -98,6 +99,12 @@ render(
           path="/user/recupPasswordTwo"
           element={
             <RecupPasswordTwo />
+          }
+        />
+        <Route
+          path="/user/DeveloperApply"
+          element={
+            <DeveloperApply />
           }
         />
       </Routes>

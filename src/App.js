@@ -10,11 +10,11 @@ function App() {
         linksObject={[
           {
             "nome": "Dashboard",
-            "url": "/dashboard"
+            "url": "/rh/dashboard"
           },
           {
             "nome": "Equipe",
-            "url": "/equipe"
+            "url": "/rh/equipe"
           }
         ]} />
         <MenuPrincipal nomeAluno="Henrique Favaro" 
@@ -25,7 +25,7 @@ function App() {
           },
           {
             "nome": "Cadastro Vaga - DEV",
-            "url": "/equipe"
+            "url": "/user/DeveloperApply"
           },
           {
             "nome": "Dashboard - ADMIN",
