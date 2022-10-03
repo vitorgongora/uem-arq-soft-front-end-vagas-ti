@@ -15,6 +15,7 @@ import {
 import "../../sass/layout-header.scss";
 import UserButton from "../../components/layout/GlobalHeader/UserButton/UserButton";
 import { LoadingOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const DeveloperApply = (props) => {
   let loading = false;
@@ -71,7 +72,7 @@ const DeveloperApply = (props) => {
       <Layout >
         <Row justify="center">
           <Col span={18}>
-            <Card bordered={false} style={{ height: "90%", width: "100%", alignContent: "center", marginTop:"5%" }}>
+            <Card bordered={false} style={{ height: "95%", width: "100%", alignContent: "center", marginTop:"2%" }}>
               <div style={{ justifyContent: "center", marginLeft: "4%", marginTop: "1%" }}>
                 <Row justify="start">
                   <Col span={15}>
@@ -446,6 +447,36 @@ const DeveloperApply = (props) => {
           </Col>
         </Row>
       </Layout>
+      <Layout.Footer style={{ textAlign: "center", marginTop:"3%"}}>
+        <Row justify="center" style={{width:"100%"}} align="bottom">
+          <Col span={8}>
+            <Row>
+              <div style={{marginLeft:"30%"}}>{logo}</div>
+            </Row>
+            <Row>
+              <p style={{marginLeft:"30%"}}>CNPJ 00.000.000/000-00</p>
+            </Row>
+            
+          </Col>
+          <Col span={8}>
+            <Row justify="center" style={{width:"100%", position: "absolute", bottom:"1px"}} align="bottom">
+              <p>VagasTI - 2022</p>
+            </Row>
+          </Col>
+          <Col span={8} style={{marginTop:"1%", display:"flex", flexDirection:"column"}}>
+            <Row justify="end" style={{marginRight:"30%"}}>
+              <Link>Termos de Serviço</Link>
+            </Row >
+            <Row justify="end" style={{marginRight:"30%"}}>
+              <Link>Polpitica de Privacidade</Link>
+            </Row>
+            <Row justify="end" style={{marginRight:"30%"}}>
+              <Link>Sobre Nós</Link>
+            </Row >
+
+          </Col>
+        </Row>
+      </Layout.Footer>
     </>
   );
 };
