@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Card, Row, Layout, Form, Input, Button, Typography, Link } from 'antd';
+import { Col, Card, Row, Layout, Form, Input, Button, Typography } from 'antd';
 
 const RecupPassword = (props) => {
   const imagem = (

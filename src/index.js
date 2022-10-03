@@ -20,6 +20,8 @@ import RecupPasswordTwo from "./pages/RecupPasswordTwo/RecupPasswordTwo";
 import DeveloperApply from "./pages/DeveloperApply/DeveloperApply";
 import AnunciosVagas from "./pages/AnunciosVagas/AnunciosVagas";
 import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
+import DesenvolvedoresAdm from "./pages/DesenvolvedoresAdm/DesenvolvedoresAdm";
+import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
 
 render(
   <React.StrictMode>
@@ -109,10 +111,26 @@ render(
           }
         />
         <Route
+          path="/adm/desenvolvedores"
+          element={
+            <AdmGlobalLayout>
+              <DesenvolvedoresAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
           path="/adm/editarvaga/:nome_da_vaga"
           element={
             <AdmGlobalLayout>
               <EditarVagaAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/editardev/:nome_dev"
+          element={
+            <AdmGlobalLayout>
+              <EditarDevAdm />
             </AdmGlobalLayout>
           }
         />
