@@ -4,11 +4,9 @@ import "../../../sass/table.scss";
 import "../../../sass/card.scss";
 import { ConfigProvider, Layout, Menu, message } from "antd";
 import {
-  DashboardOutlined,
-  CalendarOutlined,
-  SnippetsOutlined,
-  GlobalOutlined,
+  BarsOutlined,
   TeamOutlined,
+  ShopOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import GlobalHeader from "../GlobalHeader/GlobalHeader";
@@ -73,21 +71,15 @@ const AdmGlobalLayout = (props) => {
             //defaultSelectedKeys={["forms"]}
             selectedKeys={[getCurrentMenuRoute()]}
           >
-            <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
-              <Link to="/adm/admdashboard">Dashboard</Link>
+            <Menu.Item key="dashboard" icon={<BarsOutlined />}>
+              <Link to="/adm/anunciosvagas">Anúncios de vagas</Link>
             </Menu.Item>
-            {/* <Menu.Item key="agendamentos" icon={<CalendarOutlined />}>
-              <Link to="/rh/agendamentos">Agendamentos</Link>
+            <Menu.Item key="agendamentos" icon={<TeamOutlined />}>
+              <Link to="/adm/desenvolvedores">Desenvolvedores</Link>
             </Menu.Item>
-            <Menu.Item key="vagas" icon={<SnippetsOutlined />}>
-              <Link to="/rh/vagas">Vagas</Link>
+            <Menu.Item key="vagas" icon={<ShopOutlined />}>
+              <Link to="/adm/empresas">Contas de empresas</Link>
             </Menu.Item>
-            <Menu.Item key="sitepersonalizavel" icon={<GlobalOutlined />}>
-              <Link to="/rh/sitepersonalizavel">Site personalizável</Link>
-            </Menu.Item>
-            <Menu.Item key="administracao" icon={<TeamOutlined />}>
-              <Link to="/rh/administracao">Administração</Link>
-            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout>

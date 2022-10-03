@@ -29,7 +29,7 @@ function App() {
           },
           {
             "nome": "Dashboard - ADMIN",
-            "url": "/adm/admdashboard"
+            "url": "/adm/anunciosvagas"
           }
         ]} />
     </div>

@@ -15,10 +15,11 @@ import Administracao from "./pages/Adminstracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
-import AdmDashboard from "./pages/AdmDashboard/AdmDashboard";
 import RecupPassword from "./pages/RecupPassword/RecupPassword";
 import RecupPasswordTwo from "./pages/RecupPasswordTwo/RecupPasswordTwo";
 import DeveloperApply from "./pages/DeveloperApply/DeveloperApply";
+import AnunciosVagas from "./pages/AnunciosVagas/AnunciosVagas";
+import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
 
 render(
   <React.StrictMode>
@@ -82,14 +83,6 @@ render(
           }
         />
         <Route
-          path="/adm/admdashboard"
-          element={
-            <AdmGlobalLayout>
-              <AdmDashboard />
-            </AdmGlobalLayout>
-          }
-        />
-        <Route
           path="/user/recupPassword"
           element={
             <RecupPassword />
@@ -105,6 +98,22 @@ render(
           path="/user/DeveloperApply"
           element={
             <DeveloperApply />
+          }
+        />
+        <Route
+          path="/adm/anunciosvagas"
+          element={
+            <AdmGlobalLayout>
+              <AnunciosVagas />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/editarvaga/:nome_da_vaga"
+          element={
+            <AdmGlobalLayout>
+              <EditarVagaAdm />
+            </AdmGlobalLayout>
           }
         />
       </Routes>
