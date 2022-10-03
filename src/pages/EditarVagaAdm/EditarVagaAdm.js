@@ -19,7 +19,6 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 const EditarVagaAdm = (props) => {
-  let loading = false;
   let location = useLocation();
   let pageName = location.pathname.split("/")[3];
   pageName = pageName.replace(/%20/g, " ");
