@@ -155,7 +155,7 @@ const EditarVagaAdm = (props) => {
                   style={{ display: "block", marginLeft: "auto" }}
                   onClick={showModalReject}
                 >
-                  Reheitar publicação
+                  Rejeitar publicação
                 </Button>
               </Form.Item>
               <Form.Item>
