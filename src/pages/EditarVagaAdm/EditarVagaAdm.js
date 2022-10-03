@@ -4,25 +4,16 @@ import {
   Col,
   Typography,
   Card,
-  Table,
-  Radio,
   Button,
-  Space,
   Form,
   Checkbox,
   Input,
-  Upload,
   Divider,
   InputNumber,
   DatePicker,
   Modal,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import CircleStat from "../../components/CircleStat/CircleStat";
-import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
-import ColorPicker from "../../components/ColorPicker/ColorPicker";
-import RichTextInput from "../../components/layout/RichTextInput/RichTextInput";
-import { Link, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import { ArrowLeftOutlined } from "@ant-design/icons";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
