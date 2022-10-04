@@ -86,7 +86,7 @@ const Agendamentos = (props) => {
       </Row>
       <Row align="middle">
         <FilterButtonsContainer>
-          <Radio.Group defaultValue={"todos"}>
+          <Radio.Group value={"todos"}>
             <Radio.Button value="todos">Todos</Radio.Button>
             <Radio.Button value="semana">Essa semana</Radio.Button>
             <Radio.Button value="hoje">Hoje</Radio.Button>

@@ -14,8 +14,22 @@ import {
 import { InfoCircleOutlined, EditOutlined } from "@ant-design/icons";
 import FilterButtonsContainer from "../../components/FilterButtonsContainer/FilterButtonsContainer";
 
-const Vagas = (props) => {
+const AnunciosVagas = (props) => {
+
   const columns = [
+    {
+      title: "",
+      dataIndex: "status_vaga",
+      key: "status_vaga",
+      render(text, record) {
+        return {
+          props: {
+            style: { color: text === "Aberta" ? "LimeGreen" : "red" }
+          },
+          children: <div>{text}</div>
+        };
+      }
+    },
     {
       title: "Nome da vaga",
       dataIndex: "nome_da_vaga",
@@ -44,10 +58,10 @@ const Vagas = (props) => {
     {
       title: "",
       key: "action",
-      render: (_, record) => (
+      render: (record) => (
         <Space className="table-action-container">
+          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editarvaga/"+record.nome_da_vaga} />
           <Button shape="circle" icon={<InfoCircleOutlined />} />
-          <Button shape="circle" icon={<EditOutlined />} />
         </Space>
       ),
     },
@@ -55,6 +69,7 @@ const Vagas = (props) => {
   const data = [
     {
       key: "1",
+      status_vaga: "Aberta",
       nome_da_vaga: "Desenvolvedor React",
       vagas_preenchidas: "0/8",
       aplicantes_pendentes: "32",
@@ -63,6 +78,7 @@ const Vagas = (props) => {
     },
     {
       key: "2",
+      status_vaga: "Aberta",
       nome_da_vaga: "Desenvolvedor Angular",
       vagas_preenchidas: "1/2",
       aplicantes_pendentes:"10",
@@ -71,6 +87,7 @@ const Vagas = (props) => {
     },
     {
       key: "3",
+      status_vaga: "Aberta",
       nome_da_vaga: "Desenvolvedor Back-end",
       vagas_preenchidas: "0/2",
       aplicantes_pendentes:"1",
@@ -79,6 +96,7 @@ const Vagas = (props) => {
     },
     {
       key: "4",
+      status_vaga: "Aberta",
       nome_da_vaga: "Desenvolvedor Spring Boot",
       vagas_preenchidas: "1/2",
       aplicantes_pendentes:"10",
@@ -91,7 +109,7 @@ const Vagas = (props) => {
     <>
       <Row>
         <Typography.Title level={3} style={{ marginBottom: 0 }}>
-          Vagas
+          Anúncios de vagas
         </Typography.Title>
       </Row>
       <Row align="middle">
@@ -104,9 +122,6 @@ const Vagas = (props) => {
             <Radio.Button value="todas">Todas</Radio.Button>
           </Radio.Group>
         </FilterButtonsContainer>
-        <Button type="primary" style={{ marginLeft: "auto" }}>
-          Nova vaga
-        </Button>
       </Row>
       <Row>
         <Card
@@ -135,4 +150,4 @@ const Vagas = (props) => {
   );
 };
 
-export default Vagas;
+export default AnunciosVagas;

@@ -10,11 +10,26 @@ function App() {
         linksObject={[
           {
             "nome": "Dashboard",
-            "url": "/dashboard"
+            "url": "/rh/dashboard"
           },
           {
             "nome": "Equipe",
-            "url": "/equipe"
+            "url": "/rh/equipe"
+          }
+        ]} />
+        <MenuPrincipal nomeAluno="Henrique Favaro" 
+        linksObject={[
+          {
+            "nome": "Recuperar Senha",
+            "url": "/user/recupPassword"
+          },
+          {
+            "nome": "Cadastro Vaga - DEV",
+            "url": "/user/DeveloperApply"
+          },
+          {
+            "nome": "Dashboard - ADMIN",
+            "url": "/adm/anunciosvagas"
           }
         ]} />
     </div>
