@@ -12,6 +12,7 @@ import {
   InputNumber,
   Modal,
   DatePicker,
+  message,
 } from "antd";
 import {
   ArrowLeftOutlined,
@@ -152,9 +153,12 @@ const VisualizarAgendamento = (props) => {
           <Row justify="end">
             <Button
               type="primary"
-              //disabled
+              disabled
               style={{ marginLeft: "auto" }}
-              onClick={(e) => setIsContratarCandidato(true)}
+              onClick={(e) => {
+                setIsContratarCandidato(true);
+                message.success("Candidato contratado com sucesso");
+              }}
             >
               Contratar candidato
             </Button>
@@ -169,7 +173,7 @@ const VisualizarAgendamento = (props) => {
         zIndex={1001}
         okText="Contratar"
         cancelText="Cancelar"
-        style={{minWidth: "80vw"}}
+        style={{ minWidth: "80vw" }}
       >
         E-mail de aviso da aprovação no processo seletivo
         <RichTextInput />
@@ -177,7 +181,10 @@ const VisualizarAgendamento = (props) => {
       <Modal
         title={<>Agendar etapa</>}
         open={isAgendarEtapa}
-        onOk={(e) => setIsAgendarEtapa(false)}
+        onOk={(e) => {
+          setIsAgendarEtapa(false);
+          message.success("Etapa agendada com sucesso");
+        }}
         onCancel={(e) => setIsAgendarEtapa(false)}
         zIndex={1001}
         okText="Agendar"
@@ -192,8 +199,13 @@ const VisualizarAgendamento = (props) => {
       <Modal
         title={<>Alterar agendamento</>}
         open={isAlterarAgendamento}
-        onOk={(e) => setIsAlterarAgendamento(false)}
-        onCancel={(e) => setIsCancelarAgendamento(true)}
+        onOk={(e) => {
+          setIsAlterarAgendamento(false);
+          message.success("Agendamento alterado com sucesso");
+        }}
+        onCancel={(e) => {
+          setIsCancelarAgendamento(true);
+        }}
         zIndex={1001}
         okText="Alterar"
         cancelText="Cancelar agendamento"
@@ -218,6 +230,7 @@ const VisualizarAgendamento = (props) => {
         onOk={(e) => {
           setIsCancelarAgendamento(false);
           setIsAlterarAgendamento(false);
+          message.success("Agendamento cancelado com sucesso");
         }}
         onCancel={(e) => setIsCancelarAgendamento(false)}
         zIndex={1002}

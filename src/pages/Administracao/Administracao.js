@@ -12,6 +12,7 @@ import {
   Form,
   Input,
   Select,
+  message,
 } from "antd";
 import {
   EditOutlined,
@@ -114,7 +115,10 @@ const Administracao = (props) => {
       <Modal
         title="Novo membro"
         open={isNewMemberModalOpen}
-        onOk={(e) => setIsNewMemberModalOpen(false)}
+        onOk={(e) => {
+          setIsNewMemberModalOpen(false);
+          message.success("Novo membro adicionado com sucesso!");
+        }}
         onCancel={(e) => setIsNewMemberModalOpen(false)}
         zIndex={1001}
       >
@@ -149,7 +153,10 @@ const Administracao = (props) => {
       <Modal
         title="Editar membro"
         open={isEditMemberModalOpen}
-        onOk={(e) => setIsEditMemberModalOpen(false)}
+        onOk={(e) => {
+          setIsEditMemberModalOpen(false);
+          message.success("Membro editado com sucesso!");
+        }}
         onCancel={(e) => setIsEditMemberModalOpen(false)}
         zIndex={1001}
       >
@@ -195,7 +202,10 @@ const Administracao = (props) => {
           </>
         }
         open={isRemoveMemberModalOpen}
-        onOk={(e) => setIsRemoveMemberModalOpen(false)}
+        onOk={(e) => {
+          setIsRemoveMemberModalOpen(false);
+          message.success("Membro removido com sucesso!");
+        }}
         onCancel={(e) => setIsRemoveMemberModalOpen(false)}
         zIndex={1001}
         okText="Sim"

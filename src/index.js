@@ -11,7 +11,7 @@ import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 import AdmGlobalLayout from "./components/layout/AdmGlobalLayout/AdmGlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
-import Administracao from "./pages/Adminstracao/Administracao";
+import Administracao from "./pages/Administracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";

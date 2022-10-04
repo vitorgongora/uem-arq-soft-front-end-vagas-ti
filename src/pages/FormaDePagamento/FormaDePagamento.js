@@ -14,8 +14,13 @@ import {
   Radio,
   DatePicker,
   InputNumber,
+  message,
 } from "antd";
-import { CreditCardOutlined, DownloadOutlined, WarningOutlined } from "@ant-design/icons";
+import {
+  CreditCardOutlined,
+  DownloadOutlined,
+  WarningOutlined,
+} from "@ant-design/icons";
 import "../../sass/modal-radio.scss";
 
 const FormaDePagamento = (props) => {
@@ -107,7 +112,10 @@ const FormaDePagamento = (props) => {
       <Modal
         title="Alterar plano"
         open={isChangePlanModalOpen}
-        onOk={(e) => setIsChangePlanModalOpen(false)}
+        onOk={(e) => {
+          setIsChangePlanModalOpen(false);
+          message.success("Plano alterado com sucesso!");
+        }}
         okText="Alterar"
         onCancel={(e) => setIsChangePlanModalOpen(false)}
         zIndex={1001}
@@ -153,9 +161,12 @@ const FormaDePagamento = (props) => {
         </Form>
       </Modal>
       <Modal
-        title="Alterar plano"
+        title="Alterar cartão"
         open={isChangeCardModalOpen}
-        onOk={(e) => setIsChangeCardModalOpen(false)}
+        onOk={(e) => {
+          setIsChangeCardModalOpen(false);
+          message.success("Cartão alterado com sucesso!");
+        }}
         okText="Alterar"
         onCancel={(e) => setIsChangeCardModalOpen(false)}
         zIndex={1001}
@@ -201,7 +212,10 @@ const FormaDePagamento = (props) => {
           </>
         }
         open={isCancelServiceModalOpen}
-        onOk={(e) => setIsCancelServiceModalOpen(false)}
+        onOk={(e) => {
+          setIsCancelServiceModalOpen(false);
+          message.success("Serviço cancelado com sucesso!");
+        }}
         onCancel={(e) => setIsCancelServiceModalOpen(false)}
         zIndex={1001}
         okText="Sim"
