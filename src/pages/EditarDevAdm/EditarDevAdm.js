@@ -5,21 +5,16 @@ import {
   Typography,
   Card,
   Button,
-  Form,
-  Checkbox,
   Input,
   Divider,
-  InputNumber,
   DatePicker,
   Modal,
   Avatar,
 } from "antd";
-import { Link, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons";
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
 
-const EditarVagaAdm = (props) => {
+const EditarDevAdm = (props) => {
   let location = useLocation();
   let pageNameOriginal = location.pathname.split("/")[3];
   let pageName = pageNameOriginal.replace(/%20/g, " ");
@@ -138,8 +133,4 @@ const EditarVagaAdm = (props) => {
   );
 };
 
-export default EditarVagaAdm;
-
-
-{/* <Typography.Text strong>Layout da página</Typography.Text>
-          <Divider style={{ marginTop: "6px" }} /> */}
+export default EditarDevAdm;

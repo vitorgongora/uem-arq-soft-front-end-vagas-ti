@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 
 const DeveloperApply = (props) => {
   let loading = false;
-  
+
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -45,26 +45,26 @@ const DeveloperApply = (props) => {
 
   return (
     <>
-      <Layout.Header className="site-layout-sub-header-background layout-header" style={{height:"80px"}}>
-        <Row justify="center" style={{width:"100%"}}>
-          <Col span={8} style={{marginTop:"2%"}}>
+      <Layout.Header className="site-layout-sub-header-background layout-header" style={{ height: "80px" }}>
+        <Row justify="center" style={{ width: "100%" }}>
+          <Col span={8} style={{ marginTop: "2%" }}>
             <Row>
-              <div style={{marginLeft:"35%"}}>{logo}</div>
+              <div style={{ marginLeft: "35%" }}>{logo}</div>
             </Row>
           </Col>
-          <Col span={8} style={{marginTop:"1%", display:"flex", flexDirection:"row"}}>
-            <Row justify="center" style={{width:"100%"}}>
-              <h3 style={{marginRight:"1%"}}>Vagas</h3>
-              <h3 style={{marginLeft:"1%", fontWeight:"bold"}}>Planos para empresas</h3>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
+            <Row justify="center" style={{ width: "100%" }}>
+              <h3 style={{ marginRight: "1%" }}>Vagas</h3>
+              <h3 style={{ marginLeft: "1%", fontWeight: "bold" }}>Planos para empresas</h3>
             </Row>
           </Col>
-          <Col span={8} style={{marginTop:"1%"}}>
-            <Row justify="center" style={{marginLeft:"8%"}}>
-                <UserButton
-                  username={"João da Silva"}
-                  accessLevel={"account_admin"}
-                  
-                />
+          <Col span={8} style={{ marginTop: "1%" }}>
+            <Row justify="center" style={{ marginLeft: "8%" }}>
+              <UserButton
+                username={"João da Silva"}
+                accessLevel={"account_admin"}
+
+              />
             </Row>
           </Col>
         </Row>
@@ -72,7 +72,7 @@ const DeveloperApply = (props) => {
       <Layout >
         <Row justify="center">
           <Col span={18}>
-            <Card bordered={false} style={{ height: "95%", width: "100%", alignContent: "center", marginTop:"2%" }}>
+            <Card bordered={false} style={{ height: "94%", width: "100%", alignContent: "center", marginTop: "2%" }}>
               <div style={{ justifyContent: "center", marginLeft: "4%", marginTop: "1%" }}>
                 <Row justify="start">
                   <Col span={15}>
@@ -81,7 +81,7 @@ const DeveloperApply = (props) => {
                     </Typography.Title>
                   </Col>
                 </Row>
-                <Row justify="start" style={{marginTop:"1%"}}>
+                <Row justify="start" style={{ marginTop: "1%" }}>
                   <Col span={8}>
                     <Form
                       name="basic"
@@ -166,7 +166,7 @@ const DeveloperApply = (props) => {
                     </Form>
                   </Col>
                 </Row>
-                <Row justify="start" style={{marginTop:"1%"}}>
+                <Row justify="start" style={{ marginTop: "1%" }}>
                   <Col span={8}>
                     <Form
                       name="basic"
@@ -242,7 +242,7 @@ const DeveloperApply = (props) => {
                     </Form>
                   </Col>
                 </Row>
-                <Row justify="start" style={{marginTop:"1%"}}>
+                <Row justify="start" style={{ marginTop: "1%" }}>
                   <Col span={8}>
                     <Form
                       name="basic"
@@ -318,7 +318,7 @@ const DeveloperApply = (props) => {
                     </Form>
                   </Col>
                 </Row>
-                <Row justify="start" style={{marginTop:"1%"}}>
+                <Row justify="start" style={{ marginTop: "1%" }}>
                   <Col span={8}>
                     <Form
                       name="basic"
@@ -401,7 +401,7 @@ const DeveloperApply = (props) => {
                     </Form>
                   </Col>
                 </Row>
-                <Row justify="start" style={{marginTop:"1%"}}>
+                <Row justify="start" style={{ marginTop: "1%" }}>
                   <Col span={12}>
                     <Form
                       name="basic"
@@ -429,7 +429,7 @@ const DeveloperApply = (props) => {
                           <Col span={12}>
                             <Checkbox>SMS</Checkbox>
                           </Col>
-                        </Row> 
+                        </Row>
                       </Form.Item>
                     </Form>
                   </Col>
@@ -438,7 +438,7 @@ const DeveloperApply = (props) => {
                   </Col>
                   <Col span={8}>
                     <Row justify="center">
-                      <Button type="primary" style={{ marginLeft: "25%", marginTop:"15%" }}>Enviar Inscrição</Button>
+                      <Button type="primary" style={{ marginLeft: "25%", marginTop: "15%" }}>Enviar Inscrição</Button>
                     </Row>
                   </Col>
                 </Row>
@@ -447,30 +447,30 @@ const DeveloperApply = (props) => {
           </Col>
         </Row>
       </Layout>
-      <Layout.Footer style={{ textAlign: "center", marginTop:"3%"}}>
-        <Row justify="center" style={{width:"100%"}} align="bottom">
+      <Layout.Footer style={{ textAlign: "center", marginTop: "5%", position:"absolute", width:"100%", bottom:0 }}>
+        <Row justify="center" style={{ width: "100%" }} align="bottom">
           <Col span={8}>
             <Row>
-              <div style={{marginLeft:"30%"}}>{logo}</div>
+              <div style={{ marginLeft: "30%" }}>{logo}</div>
             </Row>
             <Row>
-              <p style={{marginLeft:"30%"}}>CNPJ 00.000.000/000-00</p>
+              <p style={{ marginLeft: "30%" }}>CNPJ 00.000.000/000-00</p>
             </Row>
-            
+
           </Col>
           <Col span={8}>
-            <Row justify="center" style={{width:"100%", position: "absolute", bottom:"1px"}} align="bottom">
+            <Row justify="center" style={{ width: "100%", position: "absolute", bottom: "1px" }} align="bottom">
               <p>VagasTI - 2022</p>
             </Row>
           </Col>
-          <Col span={8} style={{marginTop:"1%", display:"flex", flexDirection:"column"}}>
-            <Row justify="end" style={{marginRight:"30%"}}>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "column" }}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
               <Link>Termos de Serviço</Link>
             </Row >
-            <Row justify="end" style={{marginRight:"30%"}}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
               <Link>Polpitica de Privacidade</Link>
             </Row>
-            <Row justify="end" style={{marginRight:"30%"}}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
               <Link>Sobre Nós</Link>
             </Row >
 
