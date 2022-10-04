@@ -23,6 +23,8 @@ import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
 import DesenvolvedoresAdm from "./pages/DesenvolvedoresAdm/DesenvolvedoresAdm";
 import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
 import NovoAgendamento from "pages/Agendamentos/NovoAgendamento/NovoAgendamento";
+import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
+import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
 
 render(
   <React.StrictMode>
@@ -128,6 +130,14 @@ render(
           }
         />
         <Route
+          path="/adm/empresas"
+          element={
+            <AdmGlobalLayout>
+              <EmpresasAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
           path="/adm/editarvaga/:nome_da_vaga"
           element={
             <AdmGlobalLayout>
@@ -140,6 +150,14 @@ render(
           element={
             <AdmGlobalLayout>
               <EditarDevAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/editarempresa/:nome_empresa"
+          element={
+            <AdmGlobalLayout>
+              <EditarEmpresaAdm />
             </AdmGlobalLayout>
           }
         />
