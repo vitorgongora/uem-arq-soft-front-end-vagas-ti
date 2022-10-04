@@ -8,12 +8,20 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
+import AdmGlobalLayout from "./components/layout/AdmGlobalLayout/AdmGlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
 import Administracao from "./pages/Adminstracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
+import RecupPassword from "./pages/RecupPassword/RecupPassword";
+import RecupPasswordTwo from "./pages/RecupPasswordTwo/RecupPasswordTwo";
+import DeveloperApply from "./pages/DeveloperApply/DeveloperApply";
+import AnunciosVagas from "./pages/AnunciosVagas/AnunciosVagas";
+import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
+import DesenvolvedoresAdm from "./pages/DesenvolvedoresAdm/DesenvolvedoresAdm";
+import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
 
 render(
   <React.StrictMode>
@@ -74,6 +82,56 @@ render(
             <GlobalLayout>
               <FormaDePagamento />
             </GlobalLayout>
+          }
+        />
+        <Route
+          path="/user/recupPassword"
+          element={
+            <RecupPassword />
+          }
+        />
+        <Route
+          path="/user/recupPasswordTwo"
+          element={
+            <RecupPasswordTwo />
+          }
+        />
+        <Route
+          path="/user/DeveloperApply"
+          element={
+            <DeveloperApply />
+          }
+        />
+        <Route
+          path="/adm/anunciosvagas"
+          element={
+            <AdmGlobalLayout>
+              <AnunciosVagas />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/desenvolvedores"
+          element={
+            <AdmGlobalLayout>
+              <DesenvolvedoresAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/editarvaga/:nome_da_vaga"
+          element={
+            <AdmGlobalLayout>
+              <EditarVagaAdm />
+            </AdmGlobalLayout>
+          }
+        />
+        <Route
+          path="/adm/editardev/:nome_dev"
+          element={
+            <AdmGlobalLayout>
+              <EditarDevAdm />
+            </AdmGlobalLayout>
           }
         />
       </Routes>
