@@ -11,7 +11,7 @@ import GlobalLayout from "./components/layout/GlobalLayout/GlobalLayout";
 import AdmGlobalLayout from "./components/layout/AdmGlobalLayout/AdmGlobalLayout";
 import Agendamentos from "./pages/Agendamentos/Agendamentos";
 import Vagas from "./pages/Vagas/Vagas";
-import Administracao from "./pages/Adminstracao/Administracao";
+import Administracao from "./pages/Administracao/Administracao";
 import SitePersonalizavel from "./pages/SitePersonalizavel/SitePersonalizavel";
 import InformacoesDaConta from "./pages/InformacoesDaConta/InformacoesDaConta";
 import FormaDePagamento from "./pages/FormaDePagamento/FormaDePagamento";
@@ -22,8 +22,10 @@ import AnunciosVagas from "./pages/AnunciosVagas/AnunciosVagas";
 import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
 import DesenvolvedoresAdm from "./pages/DesenvolvedoresAdm/DesenvolvedoresAdm";
 import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
+import NovoAgendamento from "pages/Agendamentos/NovoAgendamento/NovoAgendamento";
 import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
 import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
+import VisualizarAgendamento from "pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
 
 render(
   <React.StrictMode>
@@ -43,6 +45,22 @@ render(
           element={
             <GlobalLayout>
               <Agendamentos />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/agendamentos/novoagendamento"
+          element={
+            <GlobalLayout>
+              <NovoAgendamento />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/agendamentos/visualizaragendamento/:id"
+          element={
+            <GlobalLayout>
+              <VisualizarAgendamento />
             </GlobalLayout>
           }
         />

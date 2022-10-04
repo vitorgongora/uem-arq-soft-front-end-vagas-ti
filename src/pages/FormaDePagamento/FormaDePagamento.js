@@ -1,13 +1,39 @@
-import React from "react";
-import { Row, Col, Typography, Card, Button, Collapse, Space, Table } from "antd";
-import { CreditCardOutlined, DownloadOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Collapse,
+  Space,
+  Table,
+  Form,
+  Input,
+  Modal,
+  Radio,
+  DatePicker,
+  InputNumber,
+  message,
+} from "antd";
+import {
+  CreditCardOutlined,
+  DownloadOutlined,
+  WarningOutlined,
+} from "@ant-design/icons";
+import "../../sass/modal-radio.scss";
 
 const FormaDePagamento = (props) => {
+  const [isChangePlanModalOpen, setIsChangePlanModalOpen] = useState(false);
+  const [isChangeCardModalOpen, setIsChangeCardModalOpen] = useState(false);
+  const [isCancelServiceModalOpen, setIsCancelServiceModalOpen] =
+    useState(false);
+
   const columns = [
     {
       title: "Data de emissão",
       dataIndex: "data",
-      key: "data"
+      key: "data",
     },
     {
       title: "",
@@ -52,13 +78,25 @@ const FormaDePagamento = (props) => {
                 <Row>Próxima cobraça em 20/Novembro/2021 por R$187,90</Row>
               </Col>
               <Col span={4}>
-                <Button type="primary" style={{ width: "100%" }}>
+                <Button
+                  type="primary"
+                  style={{ width: "100%" }}
+                  onClick={(e) => setIsChangePlanModalOpen(true)}
+                >
                   Alterar plano
                 </Button>
-                <Button type="primary" style={{ width: "100%", marginTop: 6 }}>
+                <Button
+                  type="primary"
+                  style={{ width: "100%", marginTop: 6 }}
+                  onClick={(e) => setIsChangeCardModalOpen(true)}
+                >
                   Alterar cartão
                 </Button>
-                <Button type="danger" style={{ width: "100%", marginTop: 6 }}>
+                <Button
+                  className="ant-btn-danger"
+                  style={{ width: "100%", marginTop: 6 }}
+                  onClick={(e) => setIsCancelServiceModalOpen(true)}
+                >
                   Cancelar serviço
                 </Button>
               </Col>
@@ -71,6 +109,120 @@ const FormaDePagamento = (props) => {
           </Collapse>
         </Card>
       </Row>
+      <Modal
+        title="Alterar plano"
+        open={isChangePlanModalOpen}
+        onOk={(e) => {
+          setIsChangePlanModalOpen(false);
+          message.success("Plano alterado com sucesso!");
+        }}
+        okText="Alterar"
+        onCancel={(e) => setIsChangePlanModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="change_plan"
+          layout={"vertical"}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item name="plano">
+            <Radio.Group
+              onChange={(e) => {}}
+              defaultValue="base"
+              style={{ width: "100%" }}
+              className="plan-radio-group"
+            >
+              <Space direction="vertical" style={{ width: "100%" }}>
+                <Radio.Button className="plan-radio-button" value="base">
+                  <div>Plano base</div>
+                  <div style={{ marginLeft: "auto" }}>Grátis</div>
+                </Radio.Button>
+                <Radio.Button className="plan-radio-button" value="startup">
+                  <div>Plano startup</div>
+                  <div style={{ marginLeft: "auto" }}>R$120</div>
+                </Radio.Button>
+                <Radio.Button
+                  disabled
+                  className="plan-radio-button"
+                  value="personalizado"
+                >
+                  <div>Plano personalizado</div>
+                  <div style={{ marginLeft: "auto" }}>
+                    <a href="#" style={{ textDecoration: "underline" }}>
+                      Entrar em contato
+                    </a>
+                  </div>
+                </Radio.Button>
+              </Space>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      </Modal>
+      <Modal
+        title="Alterar cartão"
+        open={isChangeCardModalOpen}
+        onOk={(e) => {
+          setIsChangeCardModalOpen(false);
+          message.success("Cartão alterado com sucesso!");
+        }}
+        okText="Alterar"
+        onCancel={(e) => setIsChangeCardModalOpen(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="change_credit_card"
+          layout={"vertical"}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item label="Nome no cartão" name="nome_cartao">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Número do cartão" name="numero_cartao">
+            <InputNumber
+              controls={false}
+              minLength={19}
+              maxLength={19}
+              style={{ width: "100%" }}
+              formatter={(value) => `${value}`.replace(/\d{4}(?=.)/g, "$& ")}
+            />
+          </Form.Item>
+          <Form.Item label="Data de vencimento" name="data_vencimento">
+            <DatePicker
+              picker="month"
+              placeholder="Selecione a data de vencimento"
+              style={{ width: "100%" }}
+            />
+          </Form.Item>
+          <Form.Item label="CCV" name="ccv">
+            <InputNumber controls={false} maxLength={3} />
+          </Form.Item>
+        </Form>
+      </Modal>
+      <Modal
+        title={
+          <>
+            <WarningOutlined
+              style={{ marginRight: 10, color: "rgba(0, 0, 0, 0.45)" }}
+            />
+            Atenção
+          </>
+        }
+        open={isCancelServiceModalOpen}
+        onOk={(e) => {
+          setIsCancelServiceModalOpen(false);
+          message.success("Serviço cancelado com sucesso!");
+        }}
+        onCancel={(e) => setIsCancelServiceModalOpen(false)}
+        zIndex={1001}
+        okText="Sim"
+      >
+        Você tem certeza que deseja cancelar o serviço? <br />
+        Essa ação não pode ser desfeita.
+      </Modal>
     </>
   );
 };

@@ -316,6 +316,14 @@ a:hover,
   border-radius: 4px;
 }
 
+.ant-btn.ant-btn-default {
+  border-radius: 4px;
+}
+
+.ant-btn.ant-btn-default.ant-btn-circle {
+  border-radius: 50%;
+}
+
 .ant-btn.ant-btn-danger {
   border-radius: 4px;
 }
@@ -774,4 +782,22 @@ a:hover,
 
 .ant-collapse-item.ant-collapse-item-active {
   overflow: hidden;
+}
+
+.ant-modal-content {
+  border-radius: 8px;
+}
+
+.ant-modal-header {
+  border-radius: 8px 8px 0 0;
+}
+
+.back-button-nav {
+  box-shadow: none;
+  border-color: transparent;
+  background-color: transparent;
+  border-radius: 100%;
+  &:hover {
+    border-radius: 100%;
+  }
 }

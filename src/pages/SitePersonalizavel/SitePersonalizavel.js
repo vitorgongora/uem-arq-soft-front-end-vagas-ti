@@ -13,6 +13,7 @@ import {
   Input,
   Upload,
   Divider,
+  message,
 } from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import CircleStat from "../../components/CircleStat/CircleStat";
@@ -45,8 +46,6 @@ const SitePersonalizavel = (props) => {
             name="basic"
             layout={"vertical"}
             initialValues={{ remember: true }}
-            onFinish={{}}
-            onFinishFailed={{}}
             autoComplete="off"
           >
             <Row gutter={16}>
@@ -71,11 +70,9 @@ const SitePersonalizavel = (props) => {
                     className="avatar-uploader"
                     showUploadList={false}
                     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                    beforeUpload={{}}
-                    onChange={{}}
                   >
                     {false ? (
-                      <img src={{}} alt="avatar" style={{ width: "100%" }} />
+                      <img alt="avatar" style={{ width: "100%" }} />
                     ) : (
                       uploadButton
                     )}
@@ -99,6 +96,9 @@ const SitePersonalizavel = (props) => {
                 type="primary"
                 htmlType="submit"
                 style={{ display: "block", marginLeft: "auto" }}
+                onClick={(e) =>
+                  message.success("Site personalizável alterado com sucesso")
+                }
               >
                 Salvar
               </Button>

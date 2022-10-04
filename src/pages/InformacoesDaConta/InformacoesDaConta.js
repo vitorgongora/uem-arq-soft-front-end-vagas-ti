@@ -1,7 +1,20 @@
-import React from "react";
-import { Row, Col, Typography, Card, Button, Form, Input, Divider } from "antd";
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Form,
+  Input,
+  Divider,
+  message,
+  Modal,
+} from "antd";
 
 const InformacoesDaConta = (props) => {
+  const [isPasswordChange, setIsPasswordChange] = useState(false);
+
   return (
     <>
       <Row>
@@ -14,15 +27,15 @@ const InformacoesDaConta = (props) => {
           <Form
             name="basic"
             layout={"vertical"}
-            initialValues={{ remember: true }}
-            onFinish={{}}
-            onFinishFailed={{}}
+            initialValues={{}}
+            onFinish={(e) => {}}
+            onFinishFailed={(e) => {}}
             autoComplete="off"
           >
             <Form.Item
               label="Nome"
               name="nome"
-              style={{width: "300px"}}
+              style={{ width: "300px" }}
               rules={
                 [
                   //{ required: true, message: "Please input your username!" },
@@ -35,7 +48,7 @@ const InformacoesDaConta = (props) => {
             <Form.Item
               label="Email"
               name="email"
-              style={{width: "300px"}}
+              style={{ width: "300px" }}
               rules={
                 [
                   //{ required: true, message: "Please input your username!" },
@@ -48,7 +61,7 @@ const InformacoesDaConta = (props) => {
             <Form.Item
               label="CNPJ"
               name="cnpj"
-              style={{width: "300px"}}
+              style={{ width: "300px" }}
               rules={
                 [
                   //{ required: true, message: "Please input your username!" },
@@ -59,14 +72,19 @@ const InformacoesDaConta = (props) => {
             </Form.Item>
 
             <Form.Item label="Senha">
-              <Button type="primary">Alterar</Button>
+              <Button type="primary" onClick={(e) => setIsPasswordChange(true)}>
+                Alterar
+              </Button>
             </Form.Item>
 
-            <Form.Item style={{marginBottom: "0px"}}>
+            <Form.Item style={{ marginBottom: "0px" }}>
               <Button
                 type="primary"
                 htmlType="submit"
                 style={{ display: "block", marginLeft: "auto" }}
+                onClick={(e) =>
+                  message.success("Informações alteradas com sucesso!")
+                }
               >
                 Salvar
               </Button>
@@ -74,6 +92,32 @@ const InformacoesDaConta = (props) => {
           </Form>
         </Card>
       </Row>
+      <Modal
+        title="Alterar senha"
+        open={isPasswordChange}
+        onOk={(e) => {
+          setIsPasswordChange(false);
+          message.success("Senha alterada com sucesso!");
+        }}
+        okText="Alterar"
+        onCancel={(e) => setIsPasswordChange(false)}
+        zIndex={1001}
+      >
+        <Form
+          name="change_password"
+          layout={"vertical"}
+          onFinish={(e) => {}}
+          onFinishFailed={(e) => {}}
+          autoComplete="off"
+        >
+          <Form.Item label="Nova senha" name="senha">
+            <Input.Password placeholder="Senha" />
+          </Form.Item>
+          <Form.Item label="Confirme a nova senha" name="confirmar_senha">
+            <Input.Password placeholder="Senha" />
+          </Form.Item>
+        </Form>
+      </Modal>
     </>
   );
 };
