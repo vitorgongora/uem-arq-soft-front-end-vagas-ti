@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 import {
   Row,
   Col,
@@ -14,86 +15,16 @@ import {
   Checkbox,
   Divider,
   Skeleton,
+  Avatar,
+  message,
 } from "antd";
-import { InfoCircleOutlined } from "@ant-design/icons";
-import CircleStat from "../../../components/CircleStat/CircleStat";
-import FilterButtonsContainer from "../../../components/FilterButtonsContainer/FilterButtonsContainer";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons";
 import "../../../sass/tab.scss";
 import RichTextInput from "components/layout/RichTextInput/RichTextInput";
 
 const NovoAgendamento = (props) => {
-  const columns = [
-    {
-      title: "Nome",
-      dataIndex: "nome",
-      key: "nome",
-      render: (text) => <>{text}</>,
-    },
-    {
-      title: "Vaga",
-      dataIndex: "vaga",
-      key: "vaga",
-    },
-    {
-      title: "Etapa",
-      dataIndex: "etapa",
-      key: "etapa",
-    },
-    {
-      title: "Score atual",
-      dataIndex: "score_atual",
-      key: "score_atual",
-    },
-    {
-      title: "Horário agendado",
-      dataIndex: "horario_agendado",
-      key: "horario_agendado",
-    },
-    {
-      title: "",
-      key: "action",
-      render: (_, record) => (
-        <Space className="table-action-container">
-          <Button shape="circle" icon={<InfoCircleOutlined />} />
-        </Space>
-      ),
-    },
-  ];
-  const data = [
-    {
-      key: "1",
-      nome: "John Brown",
-      vaga: "Desenvolvedor React",
-      etapa: "Atividade em grupo",
-      score_atual: "70/100",
-      horario_agendado: "30/10/2021 09:42",
-    },
-    {
-      key: "2",
-      nome: "Roberto da Silva",
-      vaga: "Desenvolvedor Angular",
-      etapa: "Teste de programação",
-      score_atual: "35/100",
-      horario_agendado: "05/11/2021 16:50",
-    },
-    {
-      key: "3",
-      nome: "Jefferson M.",
-      vaga: "Desenvolvedor Back-end",
-      etapa: "Entrevista presencial",
-      score_atual: "67/100",
-      horario_agendado: "27/11/2021 09:53",
-    },
-    {
-      key: "4",
-      nome: "Silvia P.",
-      vaga: "Desenvolvedor Back-end Java",
-      etapa: "Entrevista remota",
-      score_atual: "21/100",
-      horario_agendado: "04/11/2021 15:30",
-    },
-  ];
+  const [candidatoId, setCandidatoId] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -150,8 +81,11 @@ const NovoAgendamento = (props) => {
                       <Select
                         placeholder="Selecione o aplicante"
                         style={{ width: "100%" }}
+                        onChange={(e) => setCandidatoId(1)}
                       >
-                        <Select.Option value="joao">João</Select.Option>
+                        <Select.Option value="jefferson">
+                          Jefferson
+                        </Select.Option>
                         <Select.Option value="maria">Maria</Select.Option>
                       </Select>
                     </Form.Item>
@@ -169,21 +103,76 @@ const NovoAgendamento = (props) => {
                       Visão geral do aplicante
                     </Typography.Text>
                     <Divider style={{ marginTop: "6px" }} />
-                    <Skeleton avatar title={false} paragraph={{ rows: 3 }} />
+                    {candidatoId != 0 ? (
+                      <Row style={{ marginBottom: "4%" }}>
+                        <Col span={3}>
+                          <Avatar size={100} icon={<UserOutlined />} />
+                        </Col>
+                        <Col span={21} style={{ marginTop: "1%" }}>
+                          <Row>
+                            <Typography.Text style={{ marginLeft: "1%" }}>
+                              Jefferson da Silva
+                            </Typography.Text>
+                          </Row>
+                          <Row>
+                            <Typography.Text style={{ marginLeft: "1%" }}>
+                              23 anos
+                            </Typography.Text>
+                          </Row>
+                          <Row>
+                            <Typography.Text style={{ marginLeft: "1%" }}>
+                              Maringá - PR
+                            </Typography.Text>
+                          </Row>
+                        </Col>
+                      </Row>
+                    ) : (
+                      <Skeleton avatar title={false} paragraph={{ rows: 3 }} />
+                    )}
                   </Col>
                   <Col span={24}>
                     <Typography.Text>Formação</Typography.Text>
                     <Divider style={{ marginTop: "6px" }} />
-                    <Skeleton title={false} paragraph={{ rows: 2 }} />
+                    {candidatoId != 0 ? (
+                      <>
+                        <Row>
+                          <Typography.Text>
+                            Graduação em Ciência da Computação - UEM 2018
+                          </Typography.Text>
+                        </Row>
+                        <Row style={{ marginBottom: "4%" }}>
+                          <Typography.Link>Acessar currículo</Typography.Link>
+                        </Row>
+                      </>
+                    ) : (
+                      <Skeleton title={false} paragraph={{ rows: 2 }} />
+                    )}
                   </Col>
                   <Col span={24}>
                     <Typography.Text>Links</Typography.Text>
                     <Divider style={{ marginTop: "6px" }} />
-                    <Skeleton title={false} paragraph={{ rows: 2 }} />
+                    {candidatoId != 0 ? (
+                      <>
+                        <Row>
+                          <Typography.Link>
+                            {"www.linkedin.com"}
+                          </Typography.Link>
+                        </Row>
+                        <Row style={{ marginBottom: "4%" }}>
+                          <Typography.Link>{"www.github.com"}</Typography.Link>
+                        </Row>
+                      </>
+                    ) : (
+                      <Skeleton title={false} paragraph={{ rows: 2 }} />
+                    )}
                   </Col>
                 </Row>
               </Tabs.TabPane>
-              <Tabs.TabPane style={{marginBottom: 16}} tab="Template de aviso" key="2">
+              <Tabs.TabPane
+                style={{ marginBottom: 16 }}
+                tab="Template de aviso"
+                key="2"
+              >
                 <RichTextInput />
               </Tabs.TabPane>
             </Tabs>
@@ -191,6 +180,10 @@ const NovoAgendamento = (props) => {
               type="primary"
               htmlType="submit"
               style={{ display: "block", marginLeft: "auto" }}
+              onClick={(e) => {
+                message.success("Agendamento criado com sucesso");
+                navigate("/rh/agendamentos");
+              }}
             >
               Agendar
             </Button>
