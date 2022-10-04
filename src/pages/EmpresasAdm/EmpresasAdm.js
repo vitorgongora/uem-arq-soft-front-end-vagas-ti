@@ -13,13 +13,13 @@ import {
 } from "antd";
 import { UserOutlined, EditOutlined } from "@ant-design/icons";
 
-const DesenvolvedoresAdm = (props) => {
+const EmpresasAdm = (props) => {
 
   const columns = [
     {
       title: "",
-      dataIndex: "foto_dev",
-      key: "foto_dev",
+      dataIndex: "foto_empresa",
+      key: "foto_empresa",
       width: '4%',
       render: (record) => (
         <Avatar size={32} icon={<UserOutlined/>}/>
@@ -27,8 +27,8 @@ const DesenvolvedoresAdm = (props) => {
     },
     {
       title: "Nome",
-      dataIndex: "nome_dev",
-      key: "nome_dev",
+      dataIndex: "nome_empresa",
+      key: "nome_empresa",
       width: '91%',
     },
     {
@@ -37,7 +37,7 @@ const DesenvolvedoresAdm = (props) => {
       width: '5%',
       render: (record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editardev/"+record.nome_dev} />
+          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editarempresa/"+record.nome_empresa} />
         </Space>
       ),
     },
@@ -45,38 +45,38 @@ const DesenvolvedoresAdm = (props) => {
   const data = [
     {
       key: "1",
-      foto_dev: "",
-      nome_dev: "Jefferson da Silva",
+      foto_empresa: "",
+      nome_empresa: "Whatsapp Inc.",
     },
     {
       key: "2",
-      foto_dev: "",
-      nome_dev: "Evelyn Lopes",
+      foto_empresa: "",
+      nome_empresa: "Micosoft",
     },
     {
       key: "3",
-      foto_dev: "",
-      nome_dev: "Eduarda Freitas",
+      foto_empresa: "",
+      nome_empresa: "Apple Inc.",
     },
     {
       key: "4",
-      foto_dev: "",
-      nome_dev: "Bárbara Almeida",
+      foto_empresa: "",
+      nome_empresa: "GitHub",
     },
     {
       key: "5",
-      foto_dev: "",
-      nome_dev: "Luigi Cavalcanti",
+      foto_empresa: "",
+      nome_empresa: "Mercado Livre",
     },
     {
       key: "6",
-      foto_dev: "",
-      nome_dev: "Henrique Gomes",
+      foto_empresa: "",
+      nome_empresa: "OLX",
     },
     {
       key: "7",
-      foto_dev: "",
-      nome_dev: "Isis da Cunha",
+      foto_empresa: "",
+      nome_empresa: "Facebook",
     },
     
   ];
@@ -85,7 +85,7 @@ const DesenvolvedoresAdm = (props) => {
     <>
       <Row>
         <Typography.Title level={3} style={{ marginBottom: 0 }}>
-          Desenvolvedores
+          Contas de empresas
         </Typography.Title>
       </Row>
       <Row>
@@ -96,8 +96,8 @@ const DesenvolvedoresAdm = (props) => {
         >
           <Row style={{ marginBottom: 8 }} gutter={8}>
             <Col span={4}>
-              <Select defaultValue="nome_dev" style={{ width: "100%" }}>
-                <Select.Option value="nome_dev">Nome</Select.Option>
+              <Select defaultValue="nome_empresa" style={{ width: "100%" }}>
+                <Select.Option value="nome_empresa">Nome</Select.Option>
               </Select>
             </Col>
             <Col span={20}>
@@ -114,7 +114,7 @@ const DesenvolvedoresAdm = (props) => {
   );
 };
 
-export default DesenvolvedoresAdm;
+export default EmpresasAdm;
 
 
 
