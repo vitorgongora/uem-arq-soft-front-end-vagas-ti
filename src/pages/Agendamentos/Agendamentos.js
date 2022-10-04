@@ -92,7 +92,7 @@ const Agendamentos = (props) => {
             <Radio.Button value="hoje">Hoje</Radio.Button>
           </Radio.Group>
         </FilterButtonsContainer>
-        <Button type="primary" style={{ marginLeft: "auto" }}>
+        <Button type="primary" style={{ marginLeft: "auto" }} href="agendamentos/novoagendamento">
           Novo Agendamento
         </Button>
       </Row>
