@@ -25,6 +25,7 @@ import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
 import NovoAgendamento from "pages/Agendamentos/NovoAgendamento/NovoAgendamento";
 import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
 import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
+import VisualizarAgendamento from "pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
 
 render(
   <React.StrictMode>
@@ -52,6 +53,14 @@ render(
           element={
             <GlobalLayout>
               <NovoAgendamento />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/agendamentos/visualizaragendamento/:id"
+          element={
+            <GlobalLayout>
+              <VisualizarAgendamento />
             </GlobalLayout>
           }
         />

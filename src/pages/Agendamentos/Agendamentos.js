@@ -37,7 +37,7 @@ const Agendamentos = (props) => {
       key: "action",
       render: (_, record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<InfoCircleOutlined />} />
+          <Button shape="circle" icon={<InfoCircleOutlined />} href="agendamentos/visualizaragendamento/1" />
         </Space>
       ),
     },
