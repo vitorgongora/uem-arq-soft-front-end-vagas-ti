@@ -22,10 +22,11 @@ import AnunciosVagas from "./pages/AnunciosVagas/AnunciosVagas";
 import EditarVagaAdm from "./pages/EditarVagaAdm/EditarVagaAdm";
 import DesenvolvedoresAdm from "./pages/DesenvolvedoresAdm/DesenvolvedoresAdm";
 import EditarDevAdm from "./pages/EditarDevAdm/EditarDevAdm";
-import NovoAgendamento from "pages/Agendamentos/NovoAgendamento/NovoAgendamento";
+import NovoAgendamento from "./pages/Agendamentos/NovoAgendamento/NovoAgendamento";
 import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
 import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
-import VisualizarAgendamento from "pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
+import VisualizarAgendamento from "./pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
+import Login from "./pages/Login/Login";
 
 render(
   <React.StrictMode>
@@ -102,6 +103,12 @@ render(
             <GlobalLayout>
               <FormaDePagamento />
             </GlobalLayout>
+          }
+        />
+        <Route
+          path="/user/login"
+          element={
+            <Login />
           }
         />
         <Route

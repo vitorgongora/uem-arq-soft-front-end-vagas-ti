@@ -21,7 +21,7 @@ import {
 } from "@ant-design/icons";
 import "../../../sass/tab.scss";
 import "../../../sass/etapa.scss";
-import RichTextInput from "components/layout/RichTextInput/RichTextInput";
+import RichTextInput from "../../../components/layout/RichTextInput/RichTextInput";
 
 const VisualizarAgendamento = (props) => {
   const [isCancelarAgendamento, setIsCancelarAgendamento] = useState(false);
