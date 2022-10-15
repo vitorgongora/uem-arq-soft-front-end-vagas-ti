@@ -37,7 +37,7 @@ const EmpresasAdm = (props) => {
       width: '5%',
       render: (record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editarempresa/"+record.nome_empresa} />
+          <Button shape="circle" icon={<EditOutlined />} href={"/adm/empresas/editarempresa/"+record.nome_empresa} />
         </Space>
       ),
     },
@@ -115,10 +115,3 @@ const EmpresasAdm = (props) => {
 };
 
 export default EmpresasAdm;
-
-
-
-
-
-
-

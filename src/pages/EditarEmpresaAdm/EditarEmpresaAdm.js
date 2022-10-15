@@ -13,7 +13,7 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const EditarEmpresaAdm = (props) => {
   let location = useLocation();
-  let pageNameOriginal = location.pathname.split("/")[3];
+  let pageNameOriginal = location.pathname.split("/")[4];
   let pageName = pageNameOriginal.replace(/%20/g, " ");
 
 

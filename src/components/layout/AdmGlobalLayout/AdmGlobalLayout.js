@@ -71,13 +71,13 @@ const AdmGlobalLayout = (props) => {
             //defaultSelectedKeys={["forms"]}
             selectedKeys={[getCurrentMenuRoute()]}
           >
-            <Menu.Item key="dashboard" icon={<BarsOutlined />}>
+            <Menu.Item key="anunciosvagas" icon={<BarsOutlined />}>
               <Link to="/adm/anunciosvagas">Anúncios de vagas</Link>
             </Menu.Item>
-            <Menu.Item key="agendamentos" icon={<TeamOutlined />}>
+            <Menu.Item key="desenvolvedores" icon={<TeamOutlined />}>
               <Link to="/adm/desenvolvedores">Desenvolvedores</Link>
             </Menu.Item>
-            <Menu.Item key="vagas" icon={<ShopOutlined />}>
+            <Menu.Item key="empresas" icon={<ShopOutlined />}>
               <Link to="/adm/empresas">Contas de empresas</Link>
             </Menu.Item>
           </Menu>

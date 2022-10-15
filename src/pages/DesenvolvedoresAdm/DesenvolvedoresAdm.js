@@ -37,7 +37,7 @@ const DesenvolvedoresAdm = (props) => {
       width: '5%',
       render: (record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editardev/"+record.nome_dev} />
+          <Button shape="circle" icon={<EditOutlined />} href={"/adm/desenvolvedores/editardev/"+record.nome_dev} />
         </Space>
       ),
     },

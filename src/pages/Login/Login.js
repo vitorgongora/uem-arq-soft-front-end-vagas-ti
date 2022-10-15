@@ -60,7 +60,7 @@ const Login = (props) => {
     <Layout>
       <Row>
         <Col span = {9}>
-        <div class="imagemGreen" style={{overflow: 'hidden', height:"640px"}}>{imagem}</div>
+        <div class="imagemGreen" style={{overflow: 'hidden', height:"750px"}}>{imagem}</div>
         </Col>
         <Col span = {15}>
           <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
