@@ -53,6 +53,13 @@ function App() {
             "url": "/adm/anunciosvagas"
           }
         ]} />
+        <MenuPrincipal nomeAluno="Arthur Gustavo" 
+        linksObject={[
+          {
+            "nome": "Login",
+            "url": "/user/login"
+          }
+        ]} />
     </div>
   );
 }

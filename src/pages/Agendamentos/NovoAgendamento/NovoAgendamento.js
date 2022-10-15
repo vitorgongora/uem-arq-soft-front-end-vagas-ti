@@ -20,7 +20,7 @@ import {
 } from "antd";
 import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons";
 import "../../../sass/tab.scss";
-import RichTextInput from "components/layout/RichTextInput/RichTextInput";
+import RichTextInput from "../../../components/layout/RichTextInput/RichTextInput";
 
 const NovoAgendamento = (props) => {
   const [candidatoId, setCandidatoId] = useState(0);
