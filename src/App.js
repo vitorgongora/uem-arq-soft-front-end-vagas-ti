@@ -49,9 +49,18 @@ function App() {
             "url": "/user/DeveloperApply"
           },
           {
-            "nome": "Dashboard - ADMIN",
+            "nome": "Anúncios de vagas",
             "url": "/adm/anunciosvagas"
+          },
+          {
+            "nome": "Desenvolvedores",
+            "url": "/adm/desenvolvedores"
+          },
+          {
+            "nome": "Contas de empresas",
+            "url": "/adm/empresas"
           }
+
         ]} />
         <MenuPrincipal nomeAluno="Arthur Gustavo" 
         linksObject={[

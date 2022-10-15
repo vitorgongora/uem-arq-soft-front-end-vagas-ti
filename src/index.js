@@ -154,7 +154,7 @@ render(
           }
         />
         <Route
-          path="/adm/editarvaga/:nome_da_vaga"
+          path="/adm/anunciosvagas/editarvaga/:nome_da_vaga"
           element={
             <AdmGlobalLayout>
               <EditarVagaAdm />
@@ -162,7 +162,7 @@ render(
           }
         />
         <Route
-          path="/adm/editardev/:nome_dev"
+          path="/adm/desenvolvedores/editardev/:nome_dev"
           element={
             <AdmGlobalLayout>
               <EditarDevAdm />
@@ -170,7 +170,7 @@ render(
           }
         />
         <Route
-          path="/adm/editarempresa/:nome_empresa"
+          path="/adm/empresas/editarempresa/:nome_empresa"
           element={
             <AdmGlobalLayout>
               <EditarEmpresaAdm />

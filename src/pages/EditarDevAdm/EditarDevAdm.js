@@ -16,7 +16,7 @@ import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons";
 
 const EditarDevAdm = (props) => {
   let location = useLocation();
-  let pageNameOriginal = location.pathname.split("/")[3];
+  let pageNameOriginal = location.pathname.split("/")[4];
   let pageName = pageNameOriginal.replace(/%20/g, " ");
   let userNameFixed = pageNameOriginal.replace(/%20/g, "_");
 

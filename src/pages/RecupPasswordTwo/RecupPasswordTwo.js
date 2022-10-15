@@ -53,11 +53,11 @@ const RecupPassword = (props) => {
   return (
     <Layout >
       <Row>
-        <Col span={9} style={{height:"920px"}}>
-          <div class="imagemGreen" style={{overflow: 'hidden', height:"920px"}}>{imagem}</div>
+        <Col span={9} style={{height:"750px"}}>
+          <div class="imagemGreen" style={{overflow: 'hidden', height:"750px"}}>{imagem}</div>
         </Col>
         <Col span={15}>
-          <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
+          <Card bordered={false} style={{ height: "750px", width: "100%", alignContent: "center"}}>
             <Row justify="end">
               <div>{logo}</div>
             </Row>
