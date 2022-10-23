@@ -1,11 +1,19 @@
-import React from "react";
-import { Col, Card, Row, Layout, Form, Input, Button, Typography} from 'antd';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import { Col, Card, Row, Layout, Form, Input, Button, Typography, DatePicker, Space, Radio, Modal, message} from 'antd';
+import {EditOutlined } from '@ant-design/icons';
+import moment from 'moment';
 
-const Login = (props) => {
+const CadastroEmpresa3 = (props) => {
+    const [isChangePlanModalOpen, setIsChangePlanModalOpen] = useState(false);
+    useState(false);
+
+    const monthFormat = 'MM/YYYY';
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    console.log('Success:', values);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
   };
 
   const imagem = (
@@ -60,77 +68,190 @@ const Login = (props) => {
     <Layout>
       <Row>
         <Col span = {9}>
-        <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
+          <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
         </Col>
         <Col span = {15}>
           <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"20%"}}>
-              <Row>
-                <Col span = {12}>
-                  <Typography.Title level={2} style={{ marginBottom: 20 }}>
-                  Bem-vindo de volta à <font color = "#38B000">VagasTI</font>
-                </Typography.Title>
-                </Col>
-              </Row>
-              <Row>
-                <Form name="normal_login" className="login-form" initialValues={{remember: true,}}
-                 onFinish={onFinish}>
-                  <div style={{height: "10%"}}><b>Email</b></div>
-                  <Row>
-                    <Form.Item name="username" rules={[
-                        {
-                          required: true,
-                          message: 'Por favor insira seu e-mail',
-                        },
-                      ]} style={{width: "80%"}}>
-                      <Input prefix={<UserOutlined className="site-form-item-icon" />}
-                      placeholder="Insira seu e-mail" />
-                    </Form.Item>
-                    <Form.Item name="password" rules={[
-                      {
-                        required: true,
-                        message: 'Por favor insira sua senha',
-                        },
-                      ]}style={{width: "80%"}}>
-                        <b>Senha</b>
-                      <Input prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Insira sua senha"
-                      />
-                    </Form.Item>
-                  </Row>
-                  <div style={{justifyContent:"center", marginLeft:"0%", marginTop:"5%"}}>
-                  <Row>
-                    <Col>
-                    <Form.Item>
-                      <a className="login-form-forgot" href="/user/recupPassword">
-                        Esqueci minha senha
-                      </a>
-                      <Form.Item>
-                      <a href="/user/Cadastro">Ainda não tenho conta</a>
-                    </Form.Item>
-                    </Form.Item>
-                    </Col>
-                    <Col>
-                      <div style={{justifyContent:"central", marginLeft:"200%"}}>
-                      <Button type="primary" href="/user/vagas" className="login-form-button">
-                        Entrar
-                      </Button>
-                    </div>
-                    </Col>
-                  </Row>
-                  </div>
-                </Form>
+              <div style={{justifyContent:"center", marginLeft:"20%", marginTop:"10%"}}>
+                <Row>
+                  <Col span = {15}>
+                    <Typography.Title level={2} style={{ marginBottom: 20 }}>
+                      Registro
+                    </Typography.Title>
+                  </Col>
+                </Row>
+                <Row>
+                  <Form
+                      name="basic"
+                      style={{ width: "99%"}}
+                      layout={"inline"}
+                      initialValues={{ remember: true }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off"
+                    >
+                      <Form.Item
+                        name="Plano"
+                        style={{ width: "62%"}}
+                        rules={
+                          [
+                          ]
+                        }
+                      >
+                        <Input placeholder="Plano startup" />
+                      </Form.Item>
+                      <Form.Item
+                        name="Plano"
+                        style={{ width: "7%"}}
+                        rules={
+                          [
+                          ]
+                        }
+                      >
+                          <Button
+                            type="dashed"
+                            shape="circle"
+                            icon={<EditOutlined style={{fontSize: "25px", color: "#7f7f7f"}} />}
+                            style={{ width: "10%" }}
+                            onClick={(e) => setIsChangePlanModalOpen(true)}
+                            >
+                        </Button>
+                      </Form.Item>
+                   </Form>
+                </Row>
+                <Row>
+                  <Col span={7}>
+                    <Form
+                      name="basic"
+                      style={{ width: "90%", marginTop:"15px"}}
+                      layout={"vertical"}
+                      initialValues={{ remember: true }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off"
+                      ><Form.Item
+                      label="Nome no cartão"
+                      name="Nome no cartão"
+                      style={{ width: "120%"}}
+                      rules={
+                      [
+                        { required: true, message: "Insira o nome como consta no cartão" },
+                      ]
+                    }>
+                        <Input placeholder="Insira o nome como consta no cartão" />
+                      </Form.Item>
+                      <Form.Item
+                        label="CCV"
+                        name="CVV"
+                        style={{ width: "120%"}}
+                        rules={
+                          [
+                            { required: true, message: "Insira o CCV" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira o CCV" />
+                      </Form.Item>
+                    </Form>
+                  </Col>
+                  <Col span={9}>
+                    <Form
+                      name="basic"
+                      style={{marginLeft:"10%", marginTop:"15px"}}
+                      layout={"vertical"}
+                      initialValues={{ remember: true }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off">
+                      <Form.Item
+                        label="Número do cartão"
+                        name="Número do cartão"
+                        rules={
+                      [
+                        { required: true, message: "Insira o número do cartão" },
+                       ]
+                      }
+                      >
+                      <Input placeholder="Insira o número do cartão" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Data de vencimento"
+                        name="Data de vencimento"
+                        rules={
+                          [
+                          ]
+                        }
+                      ><DatePicker style={{width:"100%"}} defaultValue={moment('10/2022', monthFormat)} format={monthFormat} picker="month" />
+                      </Form.Item>
+                          <Row justify="end">
+                            <Button type="primary" htmlType="submit" style={{marginTop:"20px"}}
+                              className="login-form-button" href="/user/login">
+                                Finalizar Cadastro
+                            </Button>
+                          </Row>
+                    </Form>
+                  </Col>
               </Row>
             </div>
           </Card>
         </Col>
-      </Row>
-    </Layout>
+          <Modal
+          title="Alterar plano"
+          open={isChangePlanModalOpen}
+          onOk={(e) => {
+            setIsChangePlanModalOpen(false);
+            message.success("Plano alterado com sucesso!");
+          }}
+          okText="Alterar"
+          onCancel={(e) => setIsChangePlanModalOpen(false)}
+          zIndex={1001}
+        >
+          <Form
+            name="change_plan"
+            layout={"vertical"}
+            onFinish={(e) => {}}
+            onFinishFailed={(e) => {}}
+            autoComplete="off"
+          >
+            <Form.Item name="plano">
+              <Radio.Group
+                onChange={(e) => {}}
+                defaultValue="base"
+                style={{ width: "100%" }}
+                className="plan-radio-group"
+              >
+                <Space direction="vertical" style={{ width: "100%" }}>
+                  <Radio.Button className="plan-radio-button" value="base">
+                    <div>Plano base</div>
+                    <div style={{ marginLeft: "auto" }}>Grátis</div>
+                  </Radio.Button>
+                  <Radio.Button className="plan-radio-button" value="startup">
+                    <div>Plano startup</div>
+                    <div style={{ marginLeft: "auto" }}>R$120</div>
+                  </Radio.Button>
+                  <Radio.Button
+                    disabled
+                    className="plan-radio-button"
+                    value="personalizado"
+                  >
+                    <div>Plano personalizado</div>
+                    <div style={{ marginLeft: "auto" }}>
+                      <a href="#" style={{ textDecoration: "underline" }}>
+                        Entrar em contato
+                      </a>
+                    </div>
+                  </Radio.Button>
+                </Space>
+              </Radio.Group>
+            </Form.Item>
+          </Form>
+        </Modal>
+    </Row>
+  </Layout>
   );
 };
 
-export default Login;
+export default CadastroEmpresa3;

@@ -1,12 +1,17 @@
 import React from "react";
-import { Col, Card, Row, Layout, Form, Input, Button, Typography} from 'antd';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Col, Card, Row, Layout, Form, Input, Button, Typography, Checkbox} from 'antd';
 
-const Login = (props) => {
-
+const CadastroEmpresa2 = (props) => {
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    console.log('Success:', values);
   };
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+  const { TextArea } = Input;
+const onChange = (e) => {
+  console.log('Change:', e.target.value);
+};
 
   const imagem = (
     <svg width="958" height="1080" viewBox="0 0 958 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,77 +65,154 @@ const Login = (props) => {
     <Layout>
       <Row>
         <Col span = {9}>
-        <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
+          <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
         </Col>
         <Col span = {15}>
           <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"20%"}}>
+            <div style={{justifyContent:"center", marginLeft:"20%", marginTop:"10%"}}>
               <Row>
-                <Col span = {12}>
+                <Col span = {15}>
                   <Typography.Title level={2} style={{ marginBottom: 20 }}>
-                  Bem-vindo de volta à <font color = "#38B000">VagasTI</font>
-                </Typography.Title>
+                    Registro
+                  </Typography.Title>
                 </Col>
               </Row>
               <Row>
-                <Form name="normal_login" className="login-form" initialValues={{remember: true,}}
-                 onFinish={onFinish}>
-                  <div style={{height: "10%"}}><b>Email</b></div>
-                  <Row>
-                    <Form.Item name="username" rules={[
-                        {
-                          required: true,
-                          message: 'Por favor insira seu e-mail',
-                        },
-                      ]} style={{width: "80%"}}>
-                      <Input prefix={<UserOutlined className="site-form-item-icon" />}
-                      placeholder="Insira seu e-mail" />
+                <Col span={7}>
+                  <Form
+                    name="basic"
+                    style={{ width: "90%"}}
+                    layout={"vertical"}
+                    initialValues={{ remember: true }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    >
+                    <Form.Item
+                    label="CEP"
+                    name="CEP"
+                    style={{ width: "120%"}}
+                    rules={
+                      [
+                        { required: true, message: "Insira o CEP" },
+                      ]
+                    }
+                  >
+                      <Input placeholder="Insira o CEP" />
                     </Form.Item>
-                    <Form.Item name="password" rules={[
-                      {
-                        required: true,
-                        message: 'Por favor insira sua senha',
-                        },
-                      ]}style={{width: "80%"}}>
-                        <b>Senha</b>
-                      <Input prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Insira sua senha"
-                      />
-                    </Form.Item>
-                  </Row>
-                  <div style={{justifyContent:"center", marginLeft:"0%", marginTop:"5%"}}>
-                  <Row>
-                    <Col>
-                    <Form.Item>
-                      <a className="login-form-forgot" href="/user/recupPassword">
-                        Esqueci minha senha
-                      </a>
-                      <Form.Item>
-                      <a href="/user/Cadastro">Ainda não tenho conta</a>
-                    </Form.Item>
-                    </Form.Item>
-                    </Col>
-                    <Col>
-                      <div style={{justifyContent:"central", marginLeft:"200%"}}>
-                      <Button type="primary" href="/user/vagas" className="login-form-button">
-                        Entrar
-                      </Button>
-                    </div>
-                    </Col>
-                  </Row>
-                  </div>
-                </Form>
+                    <Form.Item
+                        label="Bairro"
+                        name="Bairro"
+                        style={{ width: "120%"}}
+                        rules={
+                          [
+                            { required: true, message: "Insira o bairro" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira o bairro" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Número"
+                        name="Numero"
+                        style={{ width: "120%"}}
+                        rules={
+                          [
+                            { required: true, message: "Insira o número" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira o número" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Descrição da empresa"
+                        name="Descricao"
+                        style={{ width: "120%"}}
+                        rules={
+                          [
+                            { required: true, message: "Insira a descrição da empresa" },
+                          ]
+                        }
+                      >
+                        <TextArea showCount maxLength={100} onChange={onChange} />
+                      </Form.Item>
+                      <div  style={{marginTop:"10px"}}>
+                        <Checkbox><font face= "Open Sans" size = "2" color = "#7f7f7f"  style={{marginTop:"100%"}}>Concordo com os termos de serviço e com a política de privacidade</font></Checkbox>
+                      </div>
+                  </Form>
+              </Col>
+              <Col span={9}>
+                <Form
+                      name="basic"
+                      style={{marginLeft:"10%"}}
+                      layout={"vertical"}
+                      initialValues={{ remember: true }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off"
+                    ><Form.Item
+                    label="Cidade"
+                    name="Cidade"
+                    rules={
+                      [
+                        { required: true, message: "Insira a cidade" },
+                      ]
+                    }
+                  >
+                    <Input placeholder="Insira a cidade" />
+                  </Form.Item>
+                  <Form.Item
+                        label="Rua"
+                        name="Rua"
+                        rules={
+                          [
+                            { required: true, message: "Insira a rua" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira a rua" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Complemento"
+                        name="Complemento"
+                        rules={
+                          [
+                            { required: true, message: "Insira o complemento" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira o complemento" />
+                
+                      </Form.Item>
+                      <Form.Item
+                        label="Tecnologias utilizadas"
+                        name="Tecnologias utilizadas"
+                        rules={
+                          [
+                            { required: true, message: "Insira as tecnologias utilizadas na empresa" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira as tecnologias utilizadas na empresa" />
+                      </Form.Item>
+                      <Row justify="end">
+                      <Button type="primary" htmlType="submit" style={{marginTop:"20px"}}
+                          className="login-form-button"href="/user/CadastroEmpresa_3">
+                            Próximo
+                        </Button>
+                      </Row>
+                    </Form>
+                </Col>
               </Row>
             </div>
           </Card>
         </Col>
-      </Row>
-    </Layout>
+    </Row>
+  </Layout>
   );
 };
 
-export default Login;
+export default CadastroEmpresa2;

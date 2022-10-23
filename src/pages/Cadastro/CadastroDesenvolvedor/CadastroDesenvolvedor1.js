@@ -1,12 +1,13 @@
 import React from "react";
 import { Col, Card, Row, Layout, Form, Input, Button, Typography} from 'antd';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
-const Login = (props) => {
-
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
-  };
+const CadastroDesenvolvedor1 = (props) => {
+    const onFinish = (values) => {
+        console.log('Success:', values);
+      };
+      const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+      };
 
   const imagem = (
     <svg width="958" height="1080" viewBox="0 0 958 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,77 +61,91 @@ const Login = (props) => {
     <Layout>
       <Row>
         <Col span = {9}>
-        <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
+          <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
         </Col>
         <Col span = {15}>
           <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"20%"}}>
-              <Row>
-                <Col span = {12}>
-                  <Typography.Title level={2} style={{ marginBottom: 20 }}>
-                  Bem-vindo de volta à <font color = "#38B000">VagasTI</font>
-                </Typography.Title>
-                </Col>
-              </Row>
-              <Row>
-                <Form name="normal_login" className="login-form" initialValues={{remember: true,}}
-                 onFinish={onFinish}>
-                  <div style={{height: "10%"}}><b>Email</b></div>
-                  <Row>
-                    <Form.Item name="username" rules={[
-                        {
-                          required: true,
-                          message: 'Por favor insira seu e-mail',
-                        },
-                      ]} style={{width: "80%"}}>
-                      <Input prefix={<UserOutlined className="site-form-item-icon" />}
-                      placeholder="Insira seu e-mail" />
-                    </Form.Item>
-                    <Form.Item name="password" rules={[
-                      {
-                        required: true,
-                        message: 'Por favor insira sua senha',
-                        },
-                      ]}style={{width: "80%"}}>
-                        <b>Senha</b>
-                      <Input prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Insira sua senha"
-                      />
-                    </Form.Item>
-                  </Row>
-                  <div style={{justifyContent:"center", marginLeft:"0%", marginTop:"5%"}}>
-                  <Row>
-                    <Col>
-                    <Form.Item>
-                      <a className="login-form-forgot" href="/user/recupPassword">
-                        Esqueci minha senha
-                      </a>
-                      <Form.Item>
-                      <a href="/user/Cadastro">Ainda não tenho conta</a>
-                    </Form.Item>
-                    </Form.Item>
-                    </Col>
-                    <Col>
-                      <div style={{justifyContent:"central", marginLeft:"200%"}}>
-                      <Button type="primary" href="/user/vagas" className="login-form-button">
-                        Entrar
-                      </Button>
-                    </div>
-                    </Col>
-                  </Row>
-                  </div>
-                </Form>
+              <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"5%"}}>
+                <Row>
+                  <Col span = {12}>
+                    <Typography.Title level={2} style={{ marginBottom: 20 }}>
+                      Registro
+                   </Typography.Title>
+                  </Col>
+                </Row>
+                <Row>
+                  <div style={{ width: "40%", height:"15%"}}>
+                  <Form
+                    name="basic"
+                    layout={"vertical"}
+                    initialValues={{ remember: true }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    style={{ width: "120%"}}
+                    >
+                      <Form.Item
+                        label="Nome Completo"
+                        name="Nome"
+                        rules={
+                          [
+                            { required: true, message: "Insira seu nome completo" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira seu nome completo" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Email"
+                        name="Email"
+                        rules={
+                          [
+                            { required: true, message: "Insira seu email" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira seu email" />
+                      </Form.Item>
+                      <Form.Item
+                        label="CPF"
+                        name="CPF"
+                        rules={
+                          [
+                            { required: true, message: "Insira seu CPF" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira seu CPF" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Senha"
+                        name="Senha"
+                        rules={
+                          [
+                            { required: true, message: "Insira sua senha" },
+                          ]
+                        }
+                      >
+                        <Input placeholder="Insira sua senha" />
+                      </Form.Item>
+                      <Row justify="end">
+                        <Button type="primary" htmlType="submit" 
+                          className="login-form-button" href="/user/CadastroDesenvolvedor_2">
+                          Próximo
+                        </Button>
+                      </Row>
+                  </Form>
+                </div>
               </Row>
             </div>
           </Card>
         </Col>
-      </Row>
+    </Row>
     </Layout>
   );
 };
 
-export default Login;
+export default CadastroDesenvolvedor1;
