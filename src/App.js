@@ -68,6 +68,35 @@ function App() {
             "nome": "Login",
             "url": "/user/login"
           }
+        
+        ]} />
+        <MenuPrincipal nomeAluno="Pedro Humberto" 
+        linksObject={[
+          {
+            "nome": "Pagina Inicial",
+            "url": "/PaginaInicial"
+          },
+          {
+            "nome": "Pagina de Planos",
+            "url": "/PaginaDePlanos"
+          },
+          {
+            "nome": "Editar Perfil",
+            "url": "/user/EditarPerfil"
+          },
+          {
+            "nome": "Inscrições",
+            "url": "/user/VisualizarInscricoes"
+          },
+          {
+            "nome": "Nova Vaga",
+            "url": "/rh/Vagas/NovaVaga"
+          },
+          {
+            "nome": "Vizualizar Candidatos",
+            "url": "/rh/Vagas/VisualizarVaga/"
+          }
+        
         ]} />
     </div>
   );

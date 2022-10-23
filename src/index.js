@@ -27,6 +27,14 @@ import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
 import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
 import VisualizarAgendamento from "./pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
 import Login from "./pages/Login/Login";
+import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
+import VisualizarInscricoes from "./pages/VisualizarInscricoes/VisualizarInscricoes";
+import NovaVaga from "./pages/Vagas/NovaVaga/NovaVaga";
+import VisualizarVaga from "./pages/Vagas/VisualizarVaga/VisualizarVaga";
+import VisualizarCandidato from "./pages/Vagas/VisualizarVaga/VisualizarCandidato/VisualizarCandidato";
+import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
+import PaginaDePlanos from "./pages/PaginaDePlanos/PaginaDePlanos";
+
 
 render(
   <React.StrictMode>
@@ -177,6 +185,55 @@ render(
             </AdmGlobalLayout>
           }
         />
+        <Route
+          path="/user/EditarPerfil"
+          element={
+            <EditarPerfil />
+          }
+        />
+        <Route
+          path="/user/VisualizarInscricoes"
+          element={
+            <VisualizarInscricoes />
+          }
+        />
+        <Route
+          path="/rh/Vagas/NovaVaga"
+          element={
+            <GlobalLayout>
+              <NovaVaga />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/Vagas/VisualizarVaga"
+          element={
+            <GlobalLayout>
+              <VisualizarVaga />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/Vagas/VisualizarVaga/VisualizarCandidato"
+          element={
+            <GlobalLayout>
+              <VisualizarCandidato />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/PaginaInicial"
+          element={
+            <PaginaInicial />
+          }
+        />
+        <Route
+          path="/PaginaDePlanos"
+          element={
+            <PaginaDePlanos />
+          }
+        />
+        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
