@@ -86,13 +86,15 @@ const VisualizarInscricoes = (props) => {
         <Row justify="center" style={{ width: "100%" }}>
           <Col span={8} style={{ marginTop: "2%" }}>
             <Row>
-              <div style={{ marginLeft: "35%" }}>{logo}</div>
+              <a style={{ marginLeft: "35%" }} href="/PaginaInicial">
+                <div>{logo}</div>
+              </a>
             </Row>
           </Col>
           <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
             <Row justify="center" style={{ width: "100%" }}>
-              <h3 style={{ marginRight: "1%" }}>Vagas</h3>
-              <h3 style={{ marginLeft: "1%", fontWeight: "bold" }}>Planos para empresas</h3>
+              <Button type="text" style={{ marginRight: "1%", marginTop: "10px" }} href="/Vagas">Vagas</Button>
+              <Button type="text" style={{ marginLeft: "1%", marginRight: "8%", marginTop: "10px" }} href="/PaginaDePlanos">Planos para empresas</Button>
             </Row>
           </Col>
           <Col span={8} style={{ marginTop: "1%" }}>
