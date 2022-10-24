@@ -46,7 +46,7 @@ const Vagas = (props) => {
       key: "action",
       render: (_, record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<InfoCircleOutlined />} />
+          <Button shape="circle" icon={<InfoCircleOutlined />} href={"/rh/vagas/visualizarvaga/"}/>
           <Button shape="circle" icon={<EditOutlined />} />
         </Space>
       ),
@@ -104,7 +104,7 @@ const Vagas = (props) => {
             <Radio.Button value="todas">Todas</Radio.Button>
           </Radio.Group>
         </FilterButtonsContainer>
-        <Button type="primary" style={{ marginLeft: "auto" }}>
+        <Button type="primary" style={{ marginLeft: "auto" }} href="vagas/novavaga">
           Nova vaga
         </Button>
       </Row>

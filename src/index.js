@@ -36,6 +36,13 @@ import CadastroEmpresa3 from "./pages/Cadastro/CadastroEmpresa/CadastroEmpresa3"
 import PaginaSitePersonalizavel from "./pages/VagasUsuario/PaginaSitePersonalizavel";
 import PaginaVagas from "./pages/VagasUsuario/PaginaVagas";
 import VagaEspecifica from "./pages/VagasUsuario/VagaEspecifica";
+import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
+import VisualizarInscricoes from "./pages/VisualizarInscricoes/VisualizarInscricoes";
+import NovaVaga from "./pages/Vagas/NovaVaga/NovaVaga";
+import VisualizarVaga from "./pages/Vagas/VisualizarVaga/VisualizarVaga";
+import VisualizarCandidato from "./pages/Vagas/VisualizarVaga/VisualizarCandidato/VisualizarCandidato";
+import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
+import PaginaDePlanos from "./pages/PaginaDePlanos/PaginaDePlanos";
 
 render(
   <React.StrictMode>
@@ -217,7 +224,7 @@ render(
           }
         />
         <Route
-          path="/adm/editarvaga/:nome_da_vaga"
+          path="/adm/anunciosvagas/editarvaga/:nome_da_vaga"
           element={
             <AdmGlobalLayout>
               <EditarVagaAdm />
@@ -225,7 +232,7 @@ render(
           }
         />
         <Route
-          path="/adm/editardev/:nome_dev"
+          path="/adm/desenvolvedores/editardev/:nome_dev"
           element={
             <AdmGlobalLayout>
               <EditarDevAdm />
@@ -233,13 +240,62 @@ render(
           }
         />
         <Route
-          path="/adm/editarempresa/:nome_empresa"
+          path="/adm/empresas/editarempresa/:nome_empresa"
           element={
             <AdmGlobalLayout>
               <EditarEmpresaAdm />
             </AdmGlobalLayout>
           }
         />
+        <Route
+          path="/user/EditarPerfil"
+          element={
+            <EditarPerfil />
+          }
+        />
+        <Route
+          path="/user/VisualizarInscricoes"
+          element={
+            <VisualizarInscricoes />
+          }
+        />
+        <Route
+          path="/rh/Vagas/NovaVaga"
+          element={
+            <GlobalLayout>
+              <NovaVaga />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/Vagas/VisualizarVaga"
+          element={
+            <GlobalLayout>
+              <VisualizarVaga />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/rh/Vagas/VisualizarVaga/VisualizarCandidato"
+          element={
+            <GlobalLayout>
+              <VisualizarCandidato />
+            </GlobalLayout>
+          }
+        />
+        <Route
+          path="/PaginaInicial"
+          element={
+            <PaginaInicial />
+          }
+        />
+        <Route
+          path="/PaginaDePlanos"
+          element={
+            <PaginaDePlanos />
+          }
+        />
+        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,38 +1,20 @@
 import React from "react";
-import { Col, Card, Row, Layout, Form, Input, Button, Typography, Link } from 'antd';
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Layout,
+  Collapse
+} from "antd";
+import "../../sass/layout-header.scss";
+import { Link } from "react-router-dom";
 
-const RecupPassword = (props) => {
-  const imagem = (
-    <svg width="958" height="1080" viewBox="0 0 958 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="772" height="1080" fill="url(#paint0_linear_327_1642)"/>
-    <path d="M943 744C943 817.913 919.534 889.917 875.984 949.636C832.433 1009.36 771.047 1053.71 700.672 1076.3C630.297 1098.89 554.566 1098.55 484.393 1075.34C414.22 1052.13 353.229 1007.24 310.209 947.134C267.188 887.032 244.36 814.823 245.014 740.913C245.667 667.004 269.769 595.21 313.846 535.878C357.923 476.546 419.699 432.74 490.271 410.771C560.843 388.803 636.568 389.808 706.533 413.641L594 744H943Z" fill="url(#paint1_angular_327_1642)"/>
-    <path d="M-267.615 691.371C-303.815 739.06 -324.464 796.732 -326.762 856.561C-329.059 916.389 -312.894 975.475 -280.458 1025.8C-248.023 1076.13 -200.889 1115.25 -145.453 1137.87C-90.0175 1160.49 -28.9652 1165.5 29.4177 1152.23C87.8007 1138.96 140.687 1108.05 180.898 1063.69C221.11 1019.33 246.7 963.674 254.194 904.273C261.689 844.872 250.725 784.603 222.791 731.646C194.858 678.69 151.307 635.61 98.0496 608.254L-35.2441 867.755L-267.615 691.371Z" fill="url(#paint2_angular_327_1642)"/>
-    <path d="M148.431 616.292C77.7236 608.448 11.2669 578.591 -41.5545 530.937C-94.3758 483.283 -130.893 420.239 -145.948 350.71C-161.004 281.18 -153.837 208.678 -125.46 143.442C-97.0838 78.2053 -48.931 23.5314 12.1979 -12.8593C73.3268 -49.2499 144.343 -65.5182 215.217 -59.367C286.092 -53.2157 353.243 -24.9557 407.188 21.4224C461.134 67.8004 499.147 129.953 515.86 199.103C532.573 268.252 527.142 340.905 500.333 406.801L185.862 278.862L148.431 616.292Z" fill="url(#paint3_angular_327_1642)"/>
-    <path d="M460.788 77.8991C479.215 43.5707 506.04 14.471 538.758 -6.68342C571.477 -27.8378 609.022 -40.357 647.889 -43.0724C686.756 -45.7879 725.677 -38.6109 761.019 -22.2116C796.361 -5.81228 826.972 19.2747 849.993 50.7073C873.015 82.14 887.697 118.893 892.668 157.537C897.64 196.18 892.739 235.452 878.423 271.689C864.107 307.925 840.843 339.943 810.803 364.754C780.762 389.565 744.925 406.359 706.637 413.57L663.96 186.96L460.788 77.8991Z" fill="url(#paint4_angular_327_1642)"/>
-    <defs>
-    <linearGradient id="paint0_linear_327_1642" x1="386" y1="0" x2="386" y2="1080" gradientUnits="userSpaceOnUse">
-    <stop stop-color="#284B18"/>
-    <stop offset="1" stop-color="#1D3612"/>
-    </linearGradient>
-    <radialGradient id="paint1_angular_327_1642" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(594 744) rotate(33.6555) scale(1330.03)">
-    <stop stop-color="#38B000"/>
-    <stop offset="1" stop-color="#184D00"/>
-    </radialGradient>
-    <radialGradient id="paint2_angular_327_1642" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-35.2441 867.755) rotate(-109.144) scale(1111.79)">
-    <stop stop-color="#38B000"/>
-    <stop offset="1" stop-color="#184D00"/>
-    </radialGradient>
-    <radialGradient id="paint3_angular_327_1642" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(185.862 278.861) rotate(129.985) scale(1293.83)">
-    <stop stop-color="#38B000"/>
-    <stop offset="1" stop-color="#184D00"/>
-    </radialGradient>
-    <radialGradient id="paint4_angular_327_1642" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(663.96 186.96) rotate(-36.9994) scale(878.785)">
-    <stop stop-color="#38B000"/>
-    <stop offset="1" stop-color="#38B000" stop-opacity="0"/>
-    </radialGradient>
-    </defs>
-    </svg>
-  );
+const { Panel } = Collapse;
+
+
+const PaginaDePlanos = (props) => {
 
   const logo = (
     <svg
@@ -51,97 +33,183 @@ const RecupPassword = (props) => {
   );
 
   return (
-    <Layout >
-      <Row>
-        <Col span={9} style={{height:"750px"}}>
-          <div class="imagemGreen" style={{overflow: 'hidden', height:"750px"}}>{imagem}</div>
-        </Col>
-        <Col span={15}>
-          <Card bordered={false} style={{ height: "750px", width: "100%", alignContent: "center"}}>
-            <Row justify="end">
+    <>
+      <Layout.Header className="site-layout-sub-header-background layout-header" style={{ height: "80px" }}>
+        <Row justify="center" style={{ width: "100%" }}>
+          <Col span={8} style={{ marginTop: "2%" }}>
+            <Row>
+              <a style={{ marginLeft: "35%" }} href="/PaginaInicial">
               <div>{logo}</div>
+              </a>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"10%", marginTop:"20%"}}>
-              <Row justify="center">
-                <Col span={15}>
-                  <Typography.Title level={3} style={{ marginBottom: 0 }}>
-                    Recuperar Senha
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
+            <Row justify="center" style={{ width: "100%" }}>
+              <Button type="text" style={{ marginRight: "1%", marginTop: "10px" }} href="/vagas">Vagas</Button>
+              <h3 style={{ marginLeft: "1%", marginRight: "8%", fontWeight: "bold" }}>Planos para empresas</h3>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%" }}>
+            <Row justify="center" style={{ marginLeft: "8%" }}>
+              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}>Criar nova conta</Button>
+              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/user/Login">Entrar</Button>
+            </Row>
+          </Col>
+        </Row>
+      </Layout.Header>
+      <Layout >
+        <Card bordered={false} style={{ height: "1200px", width: "100%", alignContent: "center" }}>
+          <Row justify="center" style={{ width: "100%" }}>
+            <Col span={6}></Col>
+            <Col span={10} style={{ marginTop: "2%" }}>
+              <Row>
+                <Typography.Title level={1} style={{ marginLeft: "8%" }}>
+                  Nossos planos para a empresas
+                </Typography.Title>
+              </Row>
+            </Col>
+            <Col span={6}></Col>
+          </Row>
+          <Row style={{marginTop: "2%"}}>
+            <Col span={5}>
+            </Col>
+              <Col>
+                <Card bordered={false} style={{marginTop: "4%", height: "487px", width: "330px"}}>
+                  <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                    Base
                   </Typography.Title>
-                </Col>
-              </Row>
-              <Row justify="center">
-                <Col span={15}>
-                  <Form
-                    name="basic"
-                    layout={"vertical"}
-                    initialValues={{ remember: true }}
-                    onFinish={{}}
-                    onFinishFailed={{}}
-                    autoComplete="off"
-                    style={{marginTop: "2%"}}
+                  <h3>
+                  ✓ Anúncio de vagas
+                  </h3>
+                  <h3>
+                  ✓ Visualização dos candidatos
+                  </h3>
+                  <Button
+                    type="primary"
+                    style={{marginTop: "100%", marginLeft: "17%" }}
+                    href="/user/Login"
                   >
-                    <Form.Item
-                      label="Código de recuperação"
-                      name="Código de recuperação"
-                      style={{width: "55%"}}
-                      rules={
-                        [
-                          // { required: true, message: "Please input your username!" },
-                        ]
-                      }
-                    >
-                      <Input placeholder="insira o código de recuperação" />
-                    </Form.Item>
+                    Começar Gratuitamente
+                  </Button>
+                </Card>
+              </Col>
+              <Col>
+              <Card bordered={false} style={{ height: "514px", width: "348px" }}>
+                <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                  Startup 🚀
+                </Typography.Title>
+                <h3>
+                  ✓ Anúncio de vagas
+                </h3>
+                <h3>
+                  ✓ Visualização dos candidatos
+                </h3>
+                <h3>
+                  ✓ Contratação do inicio ao fim
+                </h3>
+                <h3>
+                  ✓ Site personalizado para listar
+                  as vagas da empresa
+                </h3>
+                <h3>
+                  ✓ Até 5 membros com acesso à
+                  plataforma
+                </h3>
+                <h3>
+                  ✓ Até 10 contratações no mês
+                </h3>
+                <h2 style={{fontWeight: "bold", marginTop: "24%", marginLeft: "32%" }}>
+                  R$120/mês
+                </h2>
+                <Button
+                  type="primary"
+                  style={{marginLeft: "32%" }}
+                >
+                  Criar Conta
+                </Button>
+              </Card>
+              </Col>
+              <Col>
+                <Card bordered={false} style={{marginTop: "4%", height: "487px", width: "330px"}}>
+                  <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                    Personalizado
+                  </Typography.Title>
+                  <h3>
+                  Precisa de algo mais personalizado
+                  para sua empresa? 
+                  </h3>
+                  <h3>
+                  Entre em contato com nossa equipe de vendas.
+                  </h3>
+                  <Button
+                    type="primary"
+                    style={{ marginTop: "81%", marginLeft: "25%"}}
+                  >
+                    Solicitar Contato
+                  </Button>
+                </Card>
+              </Col>
+            <Col span={5}>
+            </Col>
+          </Row>
+          <Row style={{marginTop: "5%"}}>
+            <Col span={10}></Col>
+            <Col span={4}>
+            <Typography.Title level={3} style={{ marginBottom: 0 }}>
+              Perguntas frequentes
+            </Typography.Title>
+            </Col>
+            <Col span={10}></Col>
+          </Row>
+          <Row style={{marginTop: "1%"}}>
+            <Col span={5}>
+            </Col>
+            <Collapse ghost>
+              <Panel header="Como funciona o pagamento?" key="1">
+                <p></p>
+              </Panel>
+              <Panel header="Posso cancelar a qualquer momento?" key="2">
+                <p></p>
+              </Panel>
+              <Panel header="Existe um período de teste?" key="3">
+                <p></p>
+              </Panel>
+            </Collapse>
+          </Row>
+        </Card>
 
-                    <Form.Item
-                      label="Nova senha"
-                      name="Nova senha"
-                      style={{width: "55%"}}
-                      rules={
-                        [
-                          // { required: true, message: "Please input your username!" },
-                        ]
-                      }
-                    >
-                      <Input placeholder="insira a senha" />
-                    </Form.Item>
+      </Layout>
+      <Layout.Footer style={{ textAlign: "center", marginTop: "5%", position:"absolute", width:"100%", bottom:-450 }}>
+        <Row justify="center" style={{ width: "100%" }} align="bottom">
+          <Col span={8}>
+            <Row>
+              <div style={{ marginLeft: "30%" }}>{logo}</div>
+            </Row>
+            <Row>
+              <p style={{ marginLeft: "30%" }}>CNPJ 00.000.000/000-00</p>
+            </Row>
 
-                    <Form.Item
-                      label="Confirme a nova senha"
-                      name="Confirme a nova senha"
-                      style={{width: "55%"}}
-                      rules={
-                        [
-                          // { required: true, message: "Please input your username!" },
-                        ]
-                      }
-                    >
-                      <Input placeholder="insira a senha" />
-                    </Form.Item>
-                    
-                    <Form.Item style={{marginBottom: "0px", display:"block"}}>
-                      <Row>
-                        <Col span={9}></Col>
-                        <Col span={10}>
-                          <Button
-                            type="primary"
-                            htmlType="submit"
-                            style={{ display: "flex"}}
-                          >
-                            Alterar Senha
-                          </Button>
-                        </Col>
-                      </Row>
-                    </Form.Item>
-                  </Form>
-                </Col>
-              </Row>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-    </Layout>
+          </Col>
+          <Col span={8}>
+            <Row justify="center" style={{ width: "100%", position: "absolute", bottom: "1px" }} align="bottom">
+              <p>VagasTI - 2022</p>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "column" }}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Termos de Serviço</Link>
+            </Row >
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Polpitica de Privacidade</Link>
+            </Row>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Sobre Nós</Link>
+            </Row >
+          </Col>
+        </Row>
+      </Layout.Footer>
+    </>
   );
 };
 
-export default RecupPassword;
+export default PaginaDePlanos;

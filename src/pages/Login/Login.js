@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Card, Row, Layout, Form, Input, Button, Typography} from 'antd';
+import { Col, Card, Row, Layout, Form, Input, Button, Typography, Checkbox, Divider } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 const Login = (props) => {
@@ -60,14 +60,14 @@ const Login = (props) => {
     <Layout>
       <Row>
         <Col span = {9}>
-        <div class="imagemGreen" style={{overflow: 'hidden', height:"1010px"}}>{imagem}</div>
+        <div class="imagemGreen" style={{overflow: 'hidden', height:"750px"}}>{imagem}</div>
         </Col>
         <Col span = {15}>
           <Card bordered={false} style={{ height: "100%", width: "100%", alignContent: "center"}}>
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"20%"}}>
+            <div style={{justifyContent:"center", marginLeft:"25%", marginTop:"15%"}}>
               <Row>
                 <Col span = {12}>
                   <Typography.Title level={2} style={{ marginBottom: 20 }}>

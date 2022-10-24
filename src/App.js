@@ -49,9 +49,54 @@ function App() {
             "url": "/user/DeveloperApply"
           },
           {
-            "nome": "Dashboard - ADMIN",
+            "nome": "Anúncios de vagas",
             "url": "/adm/anunciosvagas"
+          },
+          {
+            "nome": "Desenvolvedores",
+            "url": "/adm/desenvolvedores"
+          },
+          {
+            "nome": "Contas de empresas",
+            "url": "/adm/empresas"
           }
+
+        ]} />
+        <MenuPrincipal nomeAluno="Arthur Gustavo" 
+        linksObject={[
+          {
+            "nome": "Login",
+            "url": "/user/login"
+          }
+        
+        ]} />
+        <MenuPrincipal nomeAluno="Pedro Humberto" 
+        linksObject={[
+          {
+            "nome": "Pagina Inicial",
+            "url": "/PaginaInicial"
+          },
+          {
+            "nome": "Pagina de Planos",
+            "url": "/PaginaDePlanos"
+          },
+          {
+            "nome": "Editar Perfil",
+            "url": "/user/EditarPerfil"
+          },
+          {
+            "nome": "Inscrições",
+            "url": "/user/VisualizarInscricoes"
+          },
+          {
+            "nome": "Nova Vaga",
+            "url": "/rh/Vagas/NovaVaga"
+          },
+          {
+            "nome": "Vizualizar Candidatos",
+            "url": "/rh/Vagas/VisualizarVaga/"
+          }
+        
         ]} />
         <MenuPrincipal nomeAluno="Arthur Gustavo" 
         linksObject={[

@@ -1,42 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "../../../sass/app.scss";
-import "../../../sass/table.scss";
-import "../../../sass/card.scss";
-import { ConfigProvider, Layout, Menu, message } from "antd";
+import React from "react";
 import {
-  BarsOutlined,
-  TeamOutlined,
-  ShopOutlined,
-} from "@ant-design/icons";
-import { Link, useLocation } from "react-router-dom";
-import GlobalHeader from "../GlobalHeader/GlobalHeader";
-import useWindowDimensions from "./helpers/useWindowsDimensions";
-import ptBR from "antd/lib/locale/pt_BR";
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Table,
+  Layout,
+  Space,
+} from "antd";
+import "../../sass/layout-header.scss";
+import UserButton from "../../components/layout/GlobalHeader/UserButton/UserButton";
+import { Link } from "react-router-dom";
+import { CloseCircleFilled } from "@ant-design/icons";
 
-const { Content, Sider } = Layout;
-
-const AdmGlobalLayout = (props) => {
-  const [collapsed, setCollapsed] = useState(false);
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const { height, width } = useWindowDimensions();
-  const [username, setUsername] = useState("");
-  const [accessLevel, setAccessLevel] = useState("");
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const [locale, setLocale] = useState(ptBR);
-  let location = useLocation();
-
-  useEffect(() => {
-    if (width < 1200) {
-      setCollapsed(true);
-    } else {
-      setCollapsed(false);
-    }
-  }, [width]);
-
-  const getCurrentMenuRoute = () => {
-    const menuPath = location.pathname.split("/");
-    return menuPath[2];
-  };
+const VisualizarInscricoes = (props) => {
 
   const logo = (
     <svg
@@ -53,55 +31,133 @@ const AdmGlobalLayout = (props) => {
       <rect y="2" width="28" height="28" fill="#38B000" />
     </svg>
   );
+  const columns = [
+    {
+      width: '3%',
+    },
+    {
+      title: "Nome",
+      dataIndex: "nome_cargo",
+      key: "nome_cargo",
+      width: '91%',
+    },
+    {
+      title: "Ações",
+      key: "action",
+      width: '5%',
+      render: (record) => (
+        <Space className="table-action-container">
+          <Button shape="circle" icon={<CloseCircleFilled />} />
+        </Space>
+      ),
+    },
+  ];
+  const data = [
+    {
+      key: "1",
+      nome_cargo: "Desenvolvedor Back-end Java",
+    },
+    {
+      key: "2",
+      nome_cargo: "Desenvolvedor Front-end React",
+    },
+    {
+      key: "3",
+      nome_cargo: "Desenvolvedor C",
+    },
+    {
+      key: "4",
+      nome_cargo: "Desenvolvedor Full Stack",
+    },
+    {
+      key: "5",
+      nome_cargo: "Desenvolvedor PHP",
+    },
+    {
+      key: "6",
+      nome_cargo: "Desenvolvedor UX",
+    },
+    
+  ];
 
   return (
-    <ConfigProvider locale={locale}>
-      <Layout>
-        <Sider
-          collapsedWidth={0}
-          width={230}
-          trigger={null}
-          collapsible
-          collapsed={collapsed}
-          className="global-sidebar"
-        >
-          <div className="logo">{logo}</div>
-          <Menu
-            mode="inline"
-            //defaultSelectedKeys={["forms"]}
-            selectedKeys={[getCurrentMenuRoute()]}
-          >
-            <Menu.Item key="anunciosvagas" icon={<BarsOutlined />}>
-              <Link to="/adm/anunciosvagas">Anúncios de vagas</Link>
-            </Menu.Item>
-            <Menu.Item key="desenvolvedores" icon={<TeamOutlined />}>
-              <Link to="/adm/desenvolvedores">Desenvolvedores</Link>
-            </Menu.Item>
-            <Menu.Item key="empresas" icon={<ShopOutlined />}>
-              <Link to="/adm/empresas">Contas de empresas</Link>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <GlobalHeader
-            collapsed={collapsed}
-            setCollapsed={setCollapsed}
-            username={username}
-            accessLevel={accessLevel}
-          />
-          <Content
-            className="ant-layout-content"
-            style={{
-              margin: 0,
-              minHeight: 280,
-            }}
-          >
-            {props.children}
-          </Content>
-        </Layout>
+    <>
+      <Layout.Header className="site-layout-sub-header-background layout-header" style={{ height: "80px" }}>
+        <Row justify="center" style={{ width: "100%" }}>
+          <Col span={8} style={{ marginTop: "2%" }}>
+            <Row>
+              <a style={{ marginLeft: "35%" }} href="/PaginaInicial">
+                <div>{logo}</div>
+              </a>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
+            <Row justify="center" style={{ width: "100%" }}>
+              <Button type="text" style={{ marginRight: "1%", marginTop: "10px" }} href="/vagas">Vagas</Button>
+              <Button type="text" style={{ marginLeft: "1%", marginRight: "8%", marginTop: "10px" }} href="/PaginaDePlanos">Planos para empresas</Button>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%" }}>
+            <Row justify="center" style={{ marginLeft: "8%" }}>
+              <UserButton
+                username={"João da Silva"}
+                accessLevel={"account_admin"}
+
+              />
+            </Row>
+          </Col>
+        </Row>
+      </Layout.Header>
+      <Layout >
+        <Row justify="center">
+          <Col span={18}>
+            <Card bordered={false} style={{ height: "94%", width: "100%", alignContent: "center", marginTop: "2%" }}>
+              <div style={{ justifyContent: "center", marginLeft: "4%", marginTop: "1%" }}>
+                <Row justify="start">
+                  <Col span={15}>
+                    <Typography.Title level={3} style={{ marginBottom: 0 }}>
+                      Inscrições
+                    </Typography.Title>
+                  </Col>
+                </Row>
+              </div>
+              <Table columns={columns} dataSource={data} />
+            </Card>
+          </Col>
+        </Row>
       </Layout>
-    </ConfigProvider>
+      <Layout.Footer style={{ textAlign: "center", marginTop: "5%", position:"absolute", width:"100%", bottom:0 }}>
+        <Row justify="center" style={{ width: "100%" }} align="bottom">
+          <Col span={8}>
+            <Row>
+              <div style={{ marginLeft: "30%" }}>{logo}</div>
+            </Row>
+            <Row>
+              <p style={{ marginLeft: "30%" }}>CNPJ 00.000.000/000-00</p>
+            </Row>
+
+          </Col>
+          <Col span={8}>
+            <Row justify="center" style={{ width: "100%", position: "absolute", bottom: "1px" }} align="bottom">
+              <p>VagasTI - 2022</p>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "column" }}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Termos de Serviço</Link>
+            </Row >
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Polpitica de Privacidade</Link>
+            </Row>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Sobre Nós</Link>
+            </Row >
+
+          </Col>
+        </Row>
+      </Layout.Footer>
+    </>
   );
 };
 
-export default AdmGlobalLayout;
+export default VisualizarInscricoes ;
