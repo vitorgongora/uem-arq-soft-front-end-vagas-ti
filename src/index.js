@@ -27,6 +27,15 @@ import EmpresasAdm from "./pages/EmpresasAdm/EmpresasAdm";
 import EditarEmpresaAdm from "./pages/EditarEmpresaAdm/EditarEmpresaAdm";
 import VisualizarAgendamento from "./pages/Agendamentos/VisualizarAgendamento/VisualizarAgendamento";
 import Login from "./pages/Login/Login";
+import TipoCadastro from "./pages/Cadastro/TipoCadastro";
+import CadastroDesenvolvedor1 from "./pages/Cadastro/CadastroDesenvolvedor/CadastroDesenvolvedor1";
+import CadastroDesenvolvedor2 from "./pages/Cadastro/CadastroDesenvolvedor/CadastroDesenvolvedor2";
+import CadastroEmpresa1 from "./pages/Cadastro/CadastroEmpresa/CadastroEmpresa1";
+import CadastroEmpresa2 from "./pages/Cadastro/CadastroEmpresa/CadastroEmpresa2";
+import CadastroEmpresa3 from "./pages/Cadastro/CadastroEmpresa/CadastroEmpresa3";
+import PaginaSitePersonalizavel from "./pages/VagasUsuario/PaginaSitePersonalizavel";
+import PaginaVagas from "./pages/VagasUsuario/PaginaVagas";
+import VagaEspecifica from "./pages/VagasUsuario/VagaEspecifica";
 import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
 import VisualizarInscricoes from "./pages/VisualizarInscricoes/VisualizarInscricoes";
 import NovaVaga from "./pages/Vagas/NovaVaga/NovaVaga";
@@ -34,7 +43,6 @@ import VisualizarVaga from "./pages/Vagas/VisualizarVaga/VisualizarVaga";
 import VisualizarCandidato from "./pages/Vagas/VisualizarVaga/VisualizarCandidato/VisualizarCandidato";
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import PaginaDePlanos from "./pages/PaginaDePlanos/PaginaDePlanos";
-
 
 render(
   <React.StrictMode>
@@ -131,6 +139,60 @@ render(
             <RecupPasswordTwo />
           }
         />
+        <Route
+          path="/user/Cadastro"
+          element={
+            <TipoCadastro />
+          }
+        />
+        <Route
+        path="/user/CadastroDesenvolvedor_1"
+        element={
+          <CadastroDesenvolvedor1 />
+        }
+      />
+      <Route
+        path="/user/CadastroDesenvolvedor_2"
+        element={
+          <CadastroDesenvolvedor2 />
+        }
+      />
+      <Route
+        path="/user/CadastroEmpresa_1"
+        element={
+          <CadastroEmpresa1 />
+        }
+      />
+      <Route
+        path="/user/CadastroEmpresa_2"
+        element={
+          <CadastroEmpresa2 />
+        }
+      />
+      <Route
+        path="/user/CadastroEmpresa_3"
+        element={
+          <CadastroEmpresa3 />
+        }
+      />
+      <Route
+        path="/user/sitepersonalizavel"
+        element={
+          <PaginaSitePersonalizavel />
+        }
+      />
+      <Route
+        path="/user/vagas"
+        element={
+          <PaginaVagas />
+        }
+      />
+      <Route
+        path="/user/vagaEspecifica"
+        element={
+          <VagaEspecifica />
+        }
+      />
         <Route
           path="/user/DeveloperApply"
           element={

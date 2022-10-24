@@ -98,6 +98,25 @@ function App() {
           }
         
         ]} />
+        <MenuPrincipal nomeAluno="Arthur Gustavo" 
+        linksObject={[
+          {
+            "nome": "Login",
+            "url": "/user/login"
+          },
+          {
+            "nome": "Cadastro",
+            "url": "/user/cadastro"
+          },
+          {
+            "nome": "Vagas Usuário",
+            "url": "/user/vagas"
+          },
+          {
+            "nome": "Site Personalizavel",
+            "url": "/user/sitepersonalizavel"
+          }
+        ]} />
     </div>
   );
 }
