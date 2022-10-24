@@ -44,7 +44,6 @@ import VisualizarCandidato from "./pages/Vagas/VisualizarVaga/VisualizarCandidat
 import PaginaInicial from "./pages/PaginaInicial/PaginaInicial";
 import PaginaDePlanos from "./pages/PaginaDePlanos/PaginaDePlanos";
 
-
 render(
   <React.StrictMode>
     <BrowserRouter>
