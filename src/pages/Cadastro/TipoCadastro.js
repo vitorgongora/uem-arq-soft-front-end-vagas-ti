@@ -32,13 +32,13 @@ const TipoCadastro = (props) => {
             <Row align="middle">
               <Col xs={{span: 7, offset: 2}}>
                 <Row justify="center">
-                  <Button style={{height:"60px", width:"60px"}} href="/user/CadastroDesenvolvedor_1" icon={<UserOutlined style={{fontSize: "40px"}} />} type="default"shape="circle"></Button>
+                  <Button style={{height:"60px", width:"60px"}} href="/CadastroDesenvolvedor_1" icon={<UserOutlined style={{fontSize: "40px"}} />} type="default"shape="circle"></Button>
                 </Row>
                 <Row justify="center"><Col><font face= "Open Sans" size = "5" color = "#ffffff">Cadastro como desenvolvedor</font></Col></Row>
               </Col>
               <Col xs={{span: 6, offset: 6}}>
                 <Row justify="center">
-                  <Button style={{height:"60px", width:"60px"}} href="/user/CadastroEmpresa_1" icon={<TeamOutlined style={{fontSize: "40px"}} />} type="default"shape="circle"></Button>
+                  <Button style={{height:"60px", width:"60px"}} href="/CadastroEmpresa_1" icon={<TeamOutlined style={{fontSize: "40px"}} />} type="default"shape="circle"></Button>
                 </Row>
                 <Row justify="center"><Col><font face= "Open Sans" size = "5" color = "#7f7f7f">Cadastro como empresa</font></Col></Row>
               </Col>

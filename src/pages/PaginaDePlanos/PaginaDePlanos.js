@@ -1,42 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "../../../sass/app.scss";
-import "../../../sass/table.scss";
-import "../../../sass/card.scss";
-import { ConfigProvider, Layout, Menu, message } from "antd";
+import React from "react";
 import {
-  BarsOutlined,
-  TeamOutlined,
-  ShopOutlined,
-} from "@ant-design/icons";
-import { Link, useLocation } from "react-router-dom";
-import GlobalHeader from "../GlobalHeader/GlobalHeader";
-import useWindowDimensions from "./helpers/useWindowsDimensions";
-import ptBR from "antd/lib/locale/pt_BR";
+  Row,
+  Col,
+  Typography,
+  Card,
+  Button,
+  Layout,
+  Collapse
+} from "antd";
+import "../../sass/layout-header.scss";
+import { Link } from "react-router-dom";
 
-const { Content, Sider } = Layout;
+const { Panel } = Collapse;
 
-const AdmGlobalLayout = (props) => {
-  const [collapsed, setCollapsed] = useState(false);
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const { height, width } = useWindowDimensions();
-  const [username, setUsername] = useState("");
-  const [accessLevel, setAccessLevel] = useState("");
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const [locale, setLocale] = useState(ptBR);
-  let location = useLocation();
 
-  useEffect(() => {
-    if (width < 1200) {
-      setCollapsed(true);
-    } else {
-      setCollapsed(false);
-    }
-  }, [width]);
-
-  const getCurrentMenuRoute = () => {
-    const menuPath = location.pathname.split("/");
-    return menuPath[2];
-  };
+const PaginaDePlanos = (props) => {
 
   const logo = (
     <svg
@@ -55,53 +33,180 @@ const AdmGlobalLayout = (props) => {
   );
 
   return (
-    <ConfigProvider locale={locale}>
-      <Layout>
-        <Sider
-          collapsedWidth={0}
-          width={230}
-          trigger={null}
-          collapsible
-          collapsed={collapsed}
-          className="global-sidebar"
-        >
-          <div className="logo">{logo}</div>
-          <Menu
-            mode="inline"
-            //defaultSelectedKeys={["forms"]}
-            selectedKeys={[getCurrentMenuRoute()]}
-          >
-            <Menu.Item key="anunciosvagas" icon={<BarsOutlined />}>
-              <Link to="/adm/anunciosvagas">Anúncios de vagas</Link>
-            </Menu.Item>
-            <Menu.Item key="desenvolvedores" icon={<TeamOutlined />}>
-              <Link to="/adm/desenvolvedores">Desenvolvedores</Link>
-            </Menu.Item>
-            <Menu.Item key="empresas" icon={<ShopOutlined />}>
-              <Link to="/adm/empresas">Contas de empresas</Link>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <GlobalHeader
-            collapsed={collapsed}
-            setCollapsed={setCollapsed}
-            username={username}
-            accessLevel={accessLevel}
-          />
-          <Content
-            className="ant-layout-content"
-            style={{
-              margin: 0,
-              minHeight: 280,
-            }}
-          >
-            {props.children}
-          </Content>
-        </Layout>
+    <>
+      <Layout.Header className="site-layout-sub-header-background layout-header" style={{ height: "80px" }}>
+        <Row justify="center" style={{ width: "100%" }}>
+          <Col span={8} style={{ marginTop: "2%" }}>
+            <Row>
+              <div style={{ marginLeft: "35%" }}>{logo}</div>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
+            <Row justify="center" style={{ width: "100%" }}>
+              <h3 style={{ marginRight: "1%" }}>Vagas</h3>
+              <h3 style={{ marginLeft: "1%", marginRight: "8%", fontWeight: "bold" }}>Planos para empresas</h3>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%" }}>
+            <Row justify="center" style={{ marginLeft: "8%" }}>
+              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}>Criar nova conta</Button>
+              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/user/Login">Entrar</Button>
+            </Row>
+          </Col>
+        </Row>
+      </Layout.Header>
+      <Layout >
+        <Card bordered={false} style={{ height: "1200px", width: "100%", alignContent: "center" }}>
+          <Row justify="center" style={{ width: "100%" }}>
+            <Col span={6}></Col>
+            <Col span={10} style={{ marginTop: "2%" }}>
+              <Row>
+                <Typography.Title level={1} style={{ marginLeft: "8%" }}>
+                  Nossos planos para a empresas
+                </Typography.Title>
+              </Row>
+            </Col>
+            <Col span={6}></Col>
+          </Row>
+          <Row style={{marginTop: "2%"}}>
+            <Col span={5}>
+            </Col>
+              <Col>
+                <Card bordered={false} style={{marginTop: "4%", height: "487px", width: "330px"}}>
+                  <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                    Base
+                  </Typography.Title>
+                  <h3>
+                  ✓ Anúncio de vagas
+                  </h3>
+                  <h3>
+                  ✓ Visualização dos candidatos
+                  </h3>
+                  <Button
+                    type="primary"
+                    style={{marginTop: "100%", marginLeft: "17%" }}
+                  >
+                    Começar Gratuitamente
+                  </Button>
+                </Card>
+              </Col>
+              <Col>
+              <Card bordered={false} style={{ height: "514px", width: "348px" }}>
+                <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                  Startup 🚀
+                </Typography.Title>
+                <h3>
+                  ✓ Anúncio de vagas
+                </h3>
+                <h3>
+                  ✓ Visualização dos candidatos
+                </h3>
+                <h3>
+                  ✓ Contratação do inicio ao fim
+                </h3>
+                <h3>
+                  ✓ Site personalizado para listar
+                  as vagas da empresa
+                </h3>
+                <h3>
+                  ✓ Até 5 membros com acesso à
+                  plataforma
+                </h3>
+                <h3>
+                  ✓ Até 10 contratações no mês
+                </h3>
+                <h2 style={{fontWeight: "bold", marginTop: "24%", marginLeft: "32%" }}>
+                  R$120/mês
+                </h2>
+                <Button
+                  type="primary"
+                  style={{marginLeft: "32%" }}
+                >
+                  Criar Conta
+                </Button>
+              </Card>
+              </Col>
+              <Col>
+                <Card bordered={false} style={{marginTop: "4%", height: "487px", width: "330px"}}>
+                  <Typography.Title level={3} style={{ marginBottom: 20, textAlign: 'center' }}>
+                    Personalizado
+                  </Typography.Title>
+                  <h3>
+                  Precisa de algo mais personalizado
+                  para sua empresa? 
+                  </h3>
+                  <h3>
+                  Entre em contato com nossa equipe de vendas.
+                  </h3>
+                  <Button
+                    type="primary"
+                    style={{ marginTop: "81%", marginLeft: "25%"}}
+                  >
+                    Solicitar Contato
+                  </Button>
+                </Card>
+              </Col>
+            <Col span={5}>
+            </Col>
+          </Row>
+          <Row style={{marginTop: "5%"}}>
+            <Col span={10}></Col>
+            <Col span={4}>
+            <Typography.Title level={3} style={{ marginBottom: 0 }}>
+              Perguntas frequentes
+            </Typography.Title>
+            </Col>
+            <Col span={10}></Col>
+          </Row>
+          <Row style={{marginTop: "1%"}}>
+            <Col span={5}>
+            </Col>
+            <Collapse ghost>
+              <Panel header="Como funciona o pagamento?" key="1">
+                <p></p>
+              </Panel>
+              <Panel header="Posso cancelar a qualquer momento?" key="2">
+                <p></p>
+              </Panel>
+              <Panel header="Existe um período de teste?" key="3">
+                <p></p>
+              </Panel>
+            </Collapse>
+          </Row>
+        </Card>
+
       </Layout>
-    </ConfigProvider>
+      <Layout.Footer style={{ textAlign: "center", marginTop: "5%", position:"absolute", width:"100%", bottom:-450 }}>
+        <Row justify="center" style={{ width: "100%" }} align="bottom">
+          <Col span={8}>
+            <Row>
+              <div style={{ marginLeft: "30%" }}>{logo}</div>
+            </Row>
+            <Row>
+              <p style={{ marginLeft: "30%" }}>CNPJ 00.000.000/000-00</p>
+            </Row>
+
+          </Col>
+          <Col span={8}>
+            <Row justify="center" style={{ width: "100%", position: "absolute", bottom: "1px" }} align="bottom">
+              <p>VagasTI - 2022</p>
+            </Row>
+          </Col>
+          <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "column" }}>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Termos de Serviço</Link>
+            </Row >
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Polpitica de Privacidade</Link>
+            </Row>
+            <Row justify="end" style={{ marginRight: "30%" }}>
+              <Link>Sobre Nós</Link>
+            </Row >
+          </Col>
+        </Row>
+      </Layout.Footer>
+    </>
   );
 };
 
-export default AdmGlobalLayout;
+export default PaginaDePlanos;

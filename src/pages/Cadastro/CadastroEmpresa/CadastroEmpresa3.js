@@ -188,7 +188,7 @@ const CadastroEmpresa3 = (props) => {
                       </Form.Item>
                           <Row justify="end">
                             <Button type="primary" htmlType="submit" style={{marginTop:"20px"}}
-                              className="login-form-button" href="/user/login">
+                              className="login-form-button" href="/login">
                                 Finalizar Cadastro
                             </Button>
                           </Row>

@@ -60,7 +60,7 @@ const AnunciosVagas = (props) => {
       key: "action",
       render: (record) => (
         <Space className="table-action-container">
-          <Button shape="circle" icon={<EditOutlined />} href={"/adm/editarvaga/"+record.nome_da_vaga} />
+          <Button shape="circle" icon={<EditOutlined />} href={"/adm/anunciosvagas/editarvaga/"+record.nome_da_vaga} />
           <Button shape="circle" icon={<InfoCircleOutlined />} />
         </Space>
       ),

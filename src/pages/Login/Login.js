@@ -110,13 +110,13 @@ const Login = (props) => {
                         Esqueci minha senha
                       </a>
                       <Form.Item>
-                      <a href="/user/Cadastro">Ainda não tenho conta</a>
+                      <a href="/Cadastro">Ainda não tenho conta</a>
                     </Form.Item>
                     </Form.Item>
                     </Col>
                     <Col>
                       <div style={{justifyContent:"central", marginLeft:"200%"}}>
-                      <Button type="primary" href="/user/vagas" className="login-form-button">
+                      <Button type="primary" href="/vagas" className="login-form-button">
                         Entrar
                       </Button>
                     </div>
