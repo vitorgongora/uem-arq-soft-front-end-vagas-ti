@@ -57,8 +57,8 @@ const PaginaInicial = (props) => {
           </Col>
           <Col span={8} style={{ marginTop: "1%" }}>
             <Row justify="center" style={{ marginLeft: "8%" }}>
-              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}>Criar nova conta</Button>
-              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/user/Login">Entrar</Button>
+              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}href="/cadastro">Criar nova conta</Button>
+              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/login">Entrar</Button>
             </Row>
           </Col>
         </Row>

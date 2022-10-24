@@ -51,8 +51,8 @@ const PaginaDePlanos = (props) => {
           </Col>
           <Col span={8} style={{ marginTop: "1%" }}>
             <Row justify="center" style={{ marginLeft: "8%" }}>
-              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}>Criar nova conta</Button>
-              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/user/Login">Entrar</Button>
+              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }}href="/cadastro">Criar nova conta</Button>
+              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/login">Entrar</Button>
             </Row>
           </Col>
         </Row>
@@ -87,7 +87,7 @@ const PaginaDePlanos = (props) => {
                   <Button
                     type="primary"
                     style={{marginTop: "100%", marginLeft: "17%" }}
-                    href="/user/Login"
+                    href="/login"
                   >
                     Começar Gratuitamente
                   </Button>
@@ -123,7 +123,7 @@ const PaginaDePlanos = (props) => {
                 </h2>
                 <Button
                   type="primary"
-                  style={{marginLeft: "32%" }}
+                  style={{marginLeft: "32%" }} href="/cadastro"
                 >
                   Criar Conta
                 </Button>
