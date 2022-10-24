@@ -122,6 +122,18 @@ render(
           }
         />
         <Route
+          path="/user/recupPassword"
+          element={
+            <RecupPassword />
+          }
+        />
+        <Route
+          path="/user/recupPasswordTwo"
+          element={
+            <RecupPasswordTwo />
+          }
+        />
+        <Route
           path="/user/DeveloperApply"
           element={
             <DeveloperApply />
@@ -223,77 +235,77 @@ render(
             <PaginaDePlanos />
           }
         /><Route
-        path="/login"
-        element={
-          <Login />
-        }
-      />
-      <Route
-        path="/user/recupPassword"
-        element={
-          <RecupPassword />
-        }
-      />
-      <Route
-        path="/user/recupPasswordTwo"
-        element={
-          <RecupPasswordTwo />
-        }
-      />
-      <Route
-      path="user/vagaSelecionada"
-      element={
-        <VagaEspecifica />
-      }
-    />
-      <Route
-        path="/cadastro"
-        element={
-          <TipoCadastro />
-        }
-      />
-      <Route
-      path="/cadastroDesenvolvedor_1"
-      element={
-        <CadastroDesenvolvedor1 />
-      }
-    />
-    <Route
-      path="/cadastroDesenvolvedor_2"
-      element={
-        <CadastroDesenvolvedor2 />
-      }
-    />
-    <Route
-      path="/cadastroEmpresa_1"
-      element={
-        <CadastroEmpresa1 />
-      }
-    />
-    <Route
-      path="/cadastroEmpresa_2"
-      element={
-        <CadastroEmpresa2 />
-      }
-    />
-    <Route
-      path="/cadastroEmpresa_3"
-      element={
-        <CadastroEmpresa3 />
-      }
-    />
-    <Route
-      path="/nomeEmpresa/vagas"
-      element={
-        <PaginaSitePersonalizavel />
-      }
-    />
-    <Route
-      path="/vagas"
-      element={
-        <PaginaVagas />
-      }
-    />  
+          path="/login"
+          element={
+            <Login />
+          }
+        />
+        <Route
+          path="/user/recupPassword"
+          element={
+            <RecupPassword />
+          }
+        />
+        <Route
+          path="/user/recupPasswordTwo"
+          element={
+            <RecupPasswordTwo />
+          }
+        />
+        <Route
+          path="user/vagaSelecionada"
+          element={
+            <VagaEspecifica />
+          }
+        />
+        <Route
+          path="/cadastro"
+          element={
+            <TipoCadastro />
+          }
+        />
+        <Route
+          path="/cadastroDesenvolvedor_1"
+          element={
+            <CadastroDesenvolvedor1 />
+          }
+        />
+        <Route
+          path="/cadastroDesenvolvedor_2"
+          element={
+            <CadastroDesenvolvedor2 />
+          }
+        />
+        <Route
+          path="/cadastroEmpresa_1"
+          element={
+            <CadastroEmpresa1 />
+          }
+        />
+        <Route
+          path="/cadastroEmpresa_2"
+          element={
+            <CadastroEmpresa2 />
+          }
+        />
+        <Route
+          path="/cadastroEmpresa_3"
+          element={
+            <CadastroEmpresa3 />
+          }
+        />
+        <Route
+          path="/nomeEmpresa/vagas"
+          element={
+            <PaginaSitePersonalizavel />
+          }
+        />
+        <Route
+          path="/vagas"
+          element={
+            <PaginaVagas />
+          }
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
