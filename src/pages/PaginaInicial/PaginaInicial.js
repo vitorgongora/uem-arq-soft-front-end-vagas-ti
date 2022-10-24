@@ -51,7 +51,7 @@ const PaginaInicial = (props) => {
           </Col>
           <Col span={8} style={{ marginTop: "1%", display: "flex", flexDirection: "row" }}>
             <Row justify="center" style={{ width: "100%" }}>
-              <Button type="text" style={{ marginRight: "1%", marginTop: "10px" }} href="/Vagas">Vagas</Button>
+              <Button type="text" style={{ marginRight: "1%", marginTop: "10px" }} href="/vagas">Vagas</Button>
               <Button type="text" style={{ marginLeft: "1%", marginRight: "8%", marginTop: "10px" }} href="/PaginaDePlanos">Planos para empresas</Button>
             </Row>
           </Col>
