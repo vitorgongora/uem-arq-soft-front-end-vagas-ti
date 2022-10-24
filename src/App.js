@@ -62,14 +62,6 @@ function App() {
           }
 
         ]} />
-        <MenuPrincipal nomeAluno="Arthur Gustavo" 
-        linksObject={[
-          {
-            "nome": "Login",
-            "url": "/user/login"
-          }
-        
-        ]} />
         <MenuPrincipal nomeAluno="Pedro Humberto" 
         linksObject={[
           {
@@ -102,19 +94,24 @@ function App() {
         linksObject={[
           {
             "nome": "Login",
-            "url": "/user/login"
+            "url": "/login"
           },
           {
             "nome": "Cadastro",
-            "url": "/user/cadastro"
+            "url": "/cadastro"
           },
           {
-            "nome": "Vagas Usuário",
-            "url": "/user/vagas"
+            "nome": "Listagem Vagas",
+            "url": "/vagas"
           },
           {
             "nome": "Site Personalizavel",
-            "url": "/user/sitepersonalizavel"
+            "url": "/nomeEmpresa/vagas"
+          }
+          ,
+          {
+            "nome": "Vaga Específica",
+            "url": "user/vagaSelecionada"
           }
         ]} />
     </div>

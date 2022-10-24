@@ -223,7 +223,7 @@ const CadastroEmpresa1 = (props) => {
                     </Form.Item>
                     <Row justify="end">
                       <Button type="primary" htmlType="submit" style={{marginTop:"20px"}}
-                      className="login-form-button"href="/user/CadastroEmpresa_2">
+                      className="login-form-button"href="/CadastroEmpresa_2">
                         Próximo
                       </Button>
                     </Row>

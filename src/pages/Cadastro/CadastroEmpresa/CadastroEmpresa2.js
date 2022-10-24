@@ -72,7 +72,7 @@ const onChange = (e) => {
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"20%", marginTop:"10%"}}>
+            <div style={{justifyContent:"center", marginLeft:"20%", marginTop:"5%"}}>
               <Row>
                 <Col span = {15}>
                   <Typography.Title level={2} style={{ marginBottom: 20 }}>
@@ -200,7 +200,7 @@ const onChange = (e) => {
                       </Form.Item>
                       <Row justify="end">
                       <Button type="primary" htmlType="submit" style={{marginTop:"20px"}}
-                          className="login-form-button"href="/user/CadastroEmpresa_3">
+                          className="login-form-button"href="/CadastroEmpresa_3">
                             Próximo
                         </Button>
                       </Row>

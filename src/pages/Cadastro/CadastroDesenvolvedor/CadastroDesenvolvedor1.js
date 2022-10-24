@@ -133,7 +133,7 @@ const CadastroDesenvolvedor1 = (props) => {
                       </Form.Item>
                       <Row justify="end">
                         <Button type="primary" htmlType="submit" 
-                          className="login-form-button" href="/user/CadastroDesenvolvedor_2">
+                          className="login-form-button" href="/CadastroDesenvolvedor_2">
                           Próximo
                         </Button>
                       </Row>

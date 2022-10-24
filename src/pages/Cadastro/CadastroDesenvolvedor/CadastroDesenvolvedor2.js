@@ -68,7 +68,7 @@ const CadastroDesenvolvedor2 = (props) => {
             <Row justify="end">
               <div>{logo}</div>
             </Row>
-            <div style={{justifyContent:"center", marginLeft:"20%", marginTop:"5%"}}>
+            <div style={{justifyContent:"center", marginLeft:"20%"}}>
               <Row>
                 <Col span = {15}>
                   <Typography.Title level={2} style={{ marginBottom: 20 }}>
@@ -238,7 +238,7 @@ const CadastroDesenvolvedor2 = (props) => {
                       </Form.Item>
                       <Row justify="end">
                       <Button type="primary" htmlType="submit" style={{marginTop:"100px"}}
-                          className="login-form-button"href="/user/login">
+                          className="login-form-button"href="/login">
                             Cadastrar
                         </Button>
                       </Row>

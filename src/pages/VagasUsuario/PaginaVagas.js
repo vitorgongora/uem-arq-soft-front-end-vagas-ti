@@ -1,22 +1,8 @@
 import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Typography,
-  Card,
-  Button,
-  Input,
-  Layout,
-  Form,
-  Select,
-  Pagination,
-  Space, Tree, Statistic,Avatar, List
-} from "antd";
+import {Row, Col, Typography, Card, Button, Input, Layout, Form, Select, Pagination, Space, Tree, Statistic} from "antd";
 import "../../sass/layout-header.scss";
-import UserButton from "../../components/layout/GlobalHeader/UserButton/UserButton";
-import { LoadingOutlined, PlusOutlined, UploadOutlined, LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
+import { LoadingOutlined, PlusOutlined} from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import "../../sass/bar.scss";
 
 const PaginaVagas = (props) => {
   let loading = false;
@@ -27,8 +13,6 @@ const PaginaVagas = (props) => {
   const [autoExpandParent, setAutoExpandParent] = useState(true);
   const onExpand = (expandedKeysValue) => {
     console.log('onExpand', expandedKeysValue);
-    // if not set autoExpandParent to false, if children expanded, parent can not collapse.
-    // or, you can remove all expanded children keys.
     setExpandedKeys(expandedKeysValue);
     setAutoExpandParent(false);
   };
@@ -122,16 +106,17 @@ const PaginaVagas = (props) => {
   );
 
   const logo_vaga = (
-      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M29.9531 0H54V18H29.9531V0ZM29.9531 54V24.0469H54V54H29.9531ZM0 54V36H24.0469V54H0ZM0 29.9531V0H24.0469V29.9531H0Z" fill="black"/>
-      </svg>
-    );
+    <svg width="37" height="37" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M27.7319 6C28.5757 6 29.2788 6.30469 29.8413 6.91406C30.4038 7.47656 30.6851 8.17969 30.6851 9.02344V25.4766C30.6851 26.3203 30.4038 27.0469 29.8413 27.6562C29.2788 28.2188 28.5757 28.5 27.7319 28.5H3.68506C2.84131 28.5 2.13818 28.2188 1.57568 27.6562C1.01318 27.0469 0.731934 26.3203 0.731934 25.4766V9.02344C0.731934 8.17969 1.01318 7.47656 1.57568 6.91406C2.13818 6.30469 2.84131 6 3.68506 6H9.73193V2.97656C9.73193 2.13281 10.0132 1.42969 10.5757 0.867188C11.1382 0.304688 11.8413 0.0234375 12.6851 0.0234375H18.7319C19.5757 0.0234375 20.2788 0.304688 20.8413 0.867188C21.4038 1.42969 21.6851 2.13281 21.6851 2.97656V6H27.7319ZM3.68506 9.02344V25.4766H27.7319V9.02344H3.68506ZM18.7319 6V2.97656H12.6851V6H18.7319Z" fill="#7E7E7E"/>
+    </svg>
 
+  );
+  
   return (
     <>
       <Layout.Header className="site-layout-sub-header-background layout-header" style={{ height: "80px" }}>
         <Row justify="center" style={{ width: "100%" }}>
-          <Col span={8} style={{ marginTop: "2%" }}>
+          <Col span={8} style={{ marginTop: "1%" }}>
             <Row>
               <div style={{ marginLeft: "35%" }}>{logo}</div>
             </Row>
@@ -144,10 +129,8 @@ const PaginaVagas = (props) => {
           </Col>
           <Col span={8} style={{ marginTop: "1%" }}>
             <Row justify="center" style={{ marginLeft: "8%" }}>
-              <UserButton
-                username={"João da Silva"}
-                accessLevel={"account_admin"}
-              />
+              <Button type="secondary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/cadastro">Criar nova conta</Button>
+              <Button type="primary" style={{ marginLeft: "5%", marginTop: "1%" }} href="/login">Entrar</Button>
             </Row>
           </Col>
         </Row>
@@ -157,7 +140,8 @@ const PaginaVagas = (props) => {
           <Col span={8}>
               <Input.Search 
                 placeholder="Pesquisar por vaga"
-                allowClear></Input.Search>
+                allowClear>
+              </Input.Search>
           </Col>
         </Row>
         <Row justify="center" style={{marginTop:"2%", marginBottom: 10}}  gutter={25}>
@@ -202,8 +186,8 @@ const PaginaVagas = (props) => {
                     </Select>
                   </Form.Item>
                   <Row>
-                  <font face= "Open Sans" size = "3">Localização</font>
-                <Form.Item
+                    <font face= "Open Sans" size = "3">Localização</font>
+                    <Form.Item
                         name="Localização"
                         style={{width:"100%", marginBottom:"10%"}}
                         rules={
@@ -215,12 +199,12 @@ const PaginaVagas = (props) => {
                           placeholder="Selecione seu estado"
                           allow="React"
                         >
-                    <Select.Option value="São Paulo">São Paulo</Select.Option>
-                    <Select.Option value="Rio de Janeiro">Rio de Janeiro</Select.Option>
-                    <Select.Option value="Minas Gerais">Minas Gerais</Select.Option>
-                    <Select.Option value="Paraná">Paraná</Select.Option>
-                    </Select>
-                  </Form.Item>
+                      <Select.Option value="São Paulo">São Paulo</Select.Option>
+                      <Select.Option value="Rio de Janeiro">Rio de Janeiro</Select.Option>
+                      <Select.Option value="Minas Gerais">Minas Gerais</Select.Option>
+                      <Select.Option value="Paraná">Paraná</Select.Option>
+                      </Select>
+                    </Form.Item>
                   </Row>
               </Row>
             </Card>
@@ -230,7 +214,7 @@ const PaginaVagas = (props) => {
               <Row align="middle">
                 <Col>
                   <Typography.Title level={3}>
-                    Vagas disponíveis
+                      Vagas disponíveis
                   </Typography.Title>
                 </Col>
                 <Col>
@@ -246,24 +230,103 @@ const PaginaVagas = (props) => {
                       display: 'flex',
                     }}
                   >
-                    <Card href="/user/vagas">
-                        vaga1
-                    </Card>
-                    <Card>
-                        vaga2
-                    </Card>
-                    <Card>
-                        vaga3
-                    </Card>
-                    <Card>
-                        vaga4
-                    </Card>
-                    <Card>
-                        vaga5
-                    </Card>
-                    <Card>
-                        vaga6
-                    </Card>
+                    <Button style={{height:"125px", width:"100%", marginBottom:"15px"}} href="user/vagaSelecionada">
+                      <div style={{marginTop:"1%"}}>
+                      <Row align="middle" justify="start">
+                        <Col span={4}>
+                            <Col><div class="imagemGreen">{logo_vaga}</div></Col>
+                        </Col>
+                        <Col span={20}>
+                          <Row align="middle">
+                            <Typography.Title level={4}>
+                              Desenvolvedor Back-end Java Júnior
+                            </Typography.Title></Row>
+                            <Row>
+                            <font face= "Open Sans" size = "2">Ensino superior completo</font>
+                            </Row>
+                            <Row>
+                              <font face= "Open Sans" size = "2" style={{marginTop:"1%"}}>Benefícios: Vale-refeição, gym pass, plano de saúde e convênio com escola</font>
+                            </Row>
+                        </Col>
+                      </Row>
+                      </div>
+                    </Button>
+                    <Button style={{height:"125px", width:"100%", marginBottom:"15px"}}>
+                      <Row align="middle" justify="start">
+                        <Col span={4}>
+                            <Col><div class="imagemGreen">{logo_vaga}</div></Col>
+                        </Col>
+                        <Col span={20}>
+                          <Row align="middle">
+                            <Typography.Title level={4}>
+                              Desenvolvedor Front-end React
+                            </Typography.Title></Row>
+                            <Row>
+                            <font face= "Open Sans" size = "2">Ensino superior completo</font>
+                            </Row>
+                            <Row>
+                              <font face= "Open Sans" size = "2" style={{marginTop:"2%"}}>Benefícios: Vale-refeição, gym pass, plano de saúde e convênio com escola</font>
+                            </Row>
+                        </Col>
+                      </Row>
+                    </Button>
+                    <Button style={{height:"125px", width:"100%", marginBottom:"15px"}}>
+                      <Row align="middle" justify="start">
+                        <Col span={4}>
+                            <Col><div class="imagemGreen">{logo_vaga}</div></Col>
+                        </Col>
+                        <Col span={20}>
+                          <Row align="middle">
+                            <Typography.Title level={4}>
+                              Desenvolvedor Back-end Java Senior
+                            </Typography.Title></Row>
+                            <Row>
+                            <font face= "Open Sans" size = "2">Ensino superior completo</font>
+                            </Row>
+                            <Row>
+                              <font face= "Open Sans" size = "2" style={{marginTop:"2%"}}>Benefícios: Vale-refeição, gym pass, plano de saúde e convênio com escola</font>
+                            </Row>
+                        </Col>
+                      </Row>
+                    </Button>
+                    <Button style={{height:"125px", width:"100%", marginBottom:"15px"}}>
+                      <Row align="middle" justify="start">
+                        <Col span={4}>
+                            <Col><div class="imagemGreen">{logo_vaga}</div></Col>
+                        </Col>
+                        <Col span={20}>
+                          <Row align="middle">
+                            <Typography.Title level={4}>
+                              Desenvolvedor Front-end Angular
+                            </Typography.Title></Row>
+                            <Row>
+                            <font face= "Open Sans" size = "2">Ensino superior completo</font>
+                            </Row>
+                            <Row>
+                              <font face= "Open Sans" size = "2" style={{marginTop:"2%"}}>Benefícios: Vale-refeição, gym pass, plano de saúde e convênio com escola</font>
+                            </Row>
+                        </Col>
+                      </Row>
+                    </Button>
+                    <Button style={{height:"125px", width:"100%", marginBottom:"15px"}}>
+                      <Row align="middle" justify="start">
+                        <Col span={4}>
+                            <Col><div class="imagemGreen">{logo_vaga}</div></Col>
+                        </Col>
+                        <Col span={20}>
+                          <Row align="middle">
+                            <Typography.Title level={4}>
+                              Desenvolvedor Back-end Python Pleno
+                            </Typography.Title></Row>
+                            <Row>
+                            <font face= "Open Sans" size = "2">Ensino superior completo</font>
+                            </Row>
+                            <Row>
+                              <font face= "Open Sans" size = "2" style={{marginTop:"2%"}}>Benefícios: Vale-refeição, gym pass, plano de saúde e convênio com escola</font>
+                            </Row>
+                        </Col>
+                      </Row>
+                    </Button>
                   </Space>
                   <Row align="bottom" justify="end">
                     <Pagination sdefaultCurrent={1} total={50} />
@@ -283,7 +346,6 @@ const PaginaVagas = (props) => {
             <Row>
               <p style={{ marginLeft: "30%" }}>CNPJ 00.000.000/000-00</p>
             </Row>
-
           </Col>
           <Col span={8}>
             <Row justify="center" style={{ width: "100%", position: "absolute", bottom: "1px" }} align="bottom">
